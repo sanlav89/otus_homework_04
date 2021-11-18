@@ -19,6 +19,8 @@ set (
         iobserver.h
         iobservable.h
         model.h
+        view.h
+        controller.h
 )
 
 # EXECUTABLE

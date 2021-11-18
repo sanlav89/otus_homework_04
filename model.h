@@ -15,7 +15,8 @@ public:
      */
     void createNew()
     {
-        std::cout << "New document was created" << std::endl;
+        m_logMessage = "New document was created";
+        notify();
     }
 
     /**
@@ -24,7 +25,8 @@ public:
      */
     void importFromFile(const std::string &filename)
     {
-        std::cout << "Document was imported from file " << filename << std::endl;
+        m_logMessage = "Document was imported from file " + filename;
+        notify();
     }
 
     /**
@@ -33,17 +35,20 @@ public:
      */
     void exportToFile(const std::string &filename)
     {
-        std::cout << "Document was exported to file " << filename << std::endl;
+        m_logMessage = "Document was exported to file " + filename;
+        notify();
     }
 
     void createPrimitive()
     {
-
+        // TODO
+        notify();
     }
 
     void deletePrimitive()
     {
-
+        // TODO
+        notify();
     }
 
     /**
@@ -72,7 +77,18 @@ public:
         }
     }
 
+    /**
+     * @brief Состояние модели
+     */
+    void info()
+    {
+        std::cout << "[LOG]: " << m_logMessage << std::endl;
+        std::cout << "[STATE]: " << std::endl;
+        std::cout << "    Document is empty..." << std::endl;
+    }
+
 private:
+    std::string m_logMessage;
     std::list<IObserver *> m_observers;
 
 
