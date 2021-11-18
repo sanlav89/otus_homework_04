@@ -25,6 +25,7 @@ set (
         rectangle.h
         ellipse.h
         triangle.h
+        vectoreditor.h
 )
 
 # EXECUTABLE

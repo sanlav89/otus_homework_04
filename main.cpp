@@ -1,28 +1,24 @@
 #include <iostream>
 
-#include "model.h"
-#include "view.h"
-#include "controller.h"
+#include "vectoreditor.h"
 
 int main(void)
 {
     std::cout << "Hello from Amazing Vector Editor!" << std::endl << std::endl;
 
-    Model editor;
-    View view(&editor);
-    Controller controller(&editor);
+    VectorEditor vectorEditor;
 
-    controller.performCommand(Controller::Create);
-    controller.performCommand(Controller::CreateEllipse);
-    controller.performCommand(Controller::CreateRectangle);
-    controller.performCommand(Controller::CreateRectangle);
-    controller.performCommand(Controller::CreateTriangle);
-    controller.performCommand(Controller::CreateRectangle);
-    controller.performCommand(Controller::DeleteByIndex, 3);
-    controller.performCommand(Controller::Create);
-    controller.performCommand(Controller::CreateEllipse);
-    controller.performCommand(Controller::Export);
-    controller.performCommand(Controller::Import);
+    vectorEditor.performCommand(Controller::Create);
+    vectorEditor.performCommand(Controller::CreateEllipse);
+    vectorEditor.performCommand(Controller::CreateRectangle);
+    vectorEditor.performCommand(Controller::CreateRectangle);
+    vectorEditor.performCommand(Controller::CreateTriangle);
+    vectorEditor.performCommand(Controller::CreateRectangle);
+    vectorEditor.performCommand(Controller::DeleteByIndex, 3);
+    vectorEditor.performCommand(Controller::Create);
+    vectorEditor.performCommand(Controller::CreateEllipse);
+    vectorEditor.performCommand(Controller::Export);
+    vectorEditor.performCommand(Controller::Import);
 
     return 0;
 }
