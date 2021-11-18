@@ -14,10 +14,18 @@ set (
 )
 
 # HEADERS
-#set (
-#    HEADERS
-#        utils.h
-#)
+set (
+    HEADERS
+        iobserver.h
+        iobservable.h
+        model.h
+        view.h
+        controller.h
+        iprimitive.h
+        rectangle.h
+        ellipse.h
+        triangle.h
+)
 
 # EXECUTABLE
 add_executable(vector_editor ${SOURCES} ${HEADERS})
