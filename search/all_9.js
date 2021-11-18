@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['performcommand_0',['performCommand',['../class_controller.html#a6a3c2aed34d1327406c80b3685600ff5',1,'Controller::performCommand()'],['../class_vector_editor.html#a5f93292a1a3914c2eb37196ee475cdc7',1,'VectorEditor::performCommand()']]],
-  ['primitive_1',['primitive',['../class_model.html#a8b7d14e15baf1c80934e974384718a66',1,'Model']]],
-  ['primitives_2',['primitives',['../class_model.html#af06437f32bae51545dcabf1634d6d120',1,'Model']]]
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['rectangle_1',['Rectangle',['../class_rectangle.html',1,'Rectangle'],['../class_rectangle.html#ab74337363dcb42ccb4b030b0970085f8',1,'Rectangle::Rectangle()']]],
+  ['rectangle_2eh_2',['rectangle.h',['../rectangle_8h.html',1,'']]],
+  ['removeprimitive_3',['removePrimitive',['../class_model.html#a7b5123da60d86b4bb7b591814fd3f69d',1,'Model']]]
 ];

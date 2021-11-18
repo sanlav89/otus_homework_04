@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['otus_5fhomework_5f04_0',['otus_homework_04',['../index.html',1,'']]]
+  ['задание_204_0',['Задание 4',['../index.html',1,'']]]
 ];

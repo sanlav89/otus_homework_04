@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['rectangle_1',['Rectangle',['../class_rectangle.html',1,'Rectangle'],['../class_rectangle.html#ab74337363dcb42ccb4b030b0970085f8',1,'Rectangle::Rectangle()']]],
-  ['rectangle_2eh_2',['rectangle.h',['../rectangle_8h.html',1,'']]],
-  ['removeprimitive_3',['removePrimitive',['../class_model.html#a7b5123da60d86b4bb7b591814fd3f69d',1,'Model']]]
+  ['set_0',['set',['../_c_make_lists_8txt.html#acaf6fce0ae081f987b9b30a50ad7fb05',1,'CMakeLists.txt']]],
+  ['show_1',['show',['../class_ellipse.html#ab1022528532153756e5424af033daa3d',1,'Ellipse::show()'],['../class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3',1,'IPrimitive::show()'],['../class_rectangle.html#a5d5da2d9c4ecbe6e49d96a90cb72833f',1,'Rectangle::show()'],['../class_triangle.html#a68c09083b36f9c3b1a68d1cab889f123',1,'Triangle::show()']]]
 ];

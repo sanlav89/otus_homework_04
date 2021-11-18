@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['triangle_0',['Triangle',['../class_triangle.html',1,'Triangle'],['../class_triangle.html#abe6f0d035449cb80a7cc4d79baef9c3f',1,'Triangle::Triangle()']]],
-  ['triangle_2eh_1',['triangle.h',['../triangle_8h.html',1,'']]]
+  ['update_0',['update',['../class_i_observer.html#a91a4770cbec97439f2faba69a1ed72e0',1,'IObserver::update()'],['../class_view.html#a30f97c3315d0ed7c12bfabc7d8fd3275',1,'View::update()']]]
 ];
