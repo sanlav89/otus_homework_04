@@ -1,9 +1,12 @@
 #ifndef ELLIPSE_H
 #define ELLIPSE_H
 
-#include "primitive.h"
+#include "iprimitive.h"
 
-class Ellipse : public Primitive
+/**
+ * @brief Класс Ellipse - графический примитив "Эллипс"
+ */
+class Ellipse : public IPrimitive
 {
 public:
     Ellipse() = default;

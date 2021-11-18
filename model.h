@@ -7,8 +7,11 @@
 #include <cassert>
 #include <iterator>
 #include "iobservable.h"
-#include "primitive.h"
+#include "iprimitive.h"
 
+/**
+ * @brief Класс Model (MVC)
+ */
 class Model : public IObservable
 {
 public:
@@ -49,7 +52,7 @@ public:
      * @brief Добавление графического примитива
      * @param primitive - указатель на вновь созданный графический примитив
      */
-    void addPrimitive(Primitive *primitive)
+    void addPrimitive(IPrimitive *primitive)
     {
         m_logMessage = primitive->show() + " was added to document";
         m_primitives.push_back(primitive);
@@ -60,7 +63,7 @@ public:
      * @brief Удаление графического примитива
      * @param primitive - указатель на удаляемый графический примитив
      */
-    void removePrimitive(Primitive *primitive)
+    void removePrimitive(IPrimitive *primitive)
     {
         m_logMessage = primitive->show() + " was removed from document";
         m_primitives.remove(primitive);
@@ -106,7 +109,7 @@ public:
      * @brief Список графических примитивов
      * @return Список указателей на графические примитивы
      */
-    std::list<Primitive *> primitives() const
+    std::list<IPrimitive *> primitives() const
     {
         return m_primitives;
     }
@@ -116,7 +119,7 @@ public:
      * @param index[in] - индекс
      * @return Указатель на графический примитив
      */
-    Primitive *primitive(int index) const
+    IPrimitive *primitive(int index) const
     {
         assert(index >= 0 && index < static_cast<int>(m_primitives.size()));
         auto front = m_primitives.begin();
@@ -127,7 +130,7 @@ public:
 private:
     std::string m_logMessage;
     std::list<IObserver *> m_observers;
-    std::list<Primitive *> m_primitives;
+    std::list<IPrimitive *> m_primitives;
 
     void removeOldPrimitives()
     {

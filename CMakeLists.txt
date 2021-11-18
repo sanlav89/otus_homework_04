@@ -21,7 +21,7 @@ set (
         model.h
         view.h
         controller.h
-        primitive.h
+        iprimitive.h
         rectangle.h
         ellipse.h
         triangle.h

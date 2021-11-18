@@ -1,6 +1,9 @@
 #ifndef IOBSERVER_H
 #define IOBSERVER_H
 
+/**
+ * @brief Класс IObserver - интерфейс "наблюдателя" (паттерн "наблюдатель")
+ */
 class IObserver
 {
 public:

@@ -1,9 +1,12 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-#include "primitive.h"
+#include "iprimitive.h"
 
-class Rectangle : public Primitive
+/**
+ * @brief Класс Rectangle - графический примитив "Прямоугольник"
+ */
+class Rectangle : public IPrimitive
 {
 public:
     Rectangle() = default;

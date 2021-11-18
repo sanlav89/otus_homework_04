@@ -6,25 +6,34 @@
 #include "ellipse.h"
 #include "triangle.h"
 
+/**
+ * @brief Класс Controller (MVC)
+ */
 class Controller
 {
 public:
 
+    /*! Идентификаторы команд редактора */
     enum Command {
-        Create,
-        Import,
-        Export,
-        CreateRectangle,
-        CreateEllipse,
-        CreateTriangle,
-        DeleteByIndex
+        Create,             /*!< для создания нового документа */
+        Import,             /*!< для импорта документа из файла */
+        Export,             /*!< для экспорта документа в файл */
+        CreateRectangle,    /*!< для создания примитива "Прямоугольник" */
+        CreateEllipse,      /*!< для создания примитива "Эллипс" */
+        CreateTriangle,     /*!< для создания примитива "Треугольник" */
+        DeleteByIndex       /*!< для удаления примитива по индексу */
     };
 
+    /**
+     * @brief Controller (MVC)
+     * @param model - указатель на модель (MVC)
+     */
     Controller(Model *model) : m_model(model) {}
 
     /**
      * @brief Действия пользователя векторного редактора
      * @param command[in] - идентификатор команды
+     * @param index[in] - индекс удалаемого примитива
      */
     void performCommand(Command command, int index = -1)
     {

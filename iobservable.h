@@ -3,6 +3,9 @@
 
 #include "iobserver.h"
 
+/**
+ * @brief Класс IObservable - интерфейс наблюдаемого объекта (паттерн "наблюдатель")
+ */
 class IObservable
 {
 public:

@@ -3,9 +3,17 @@
 
 #include "model.h"
 
+/**
+ * @brief Класс View (MVC) с интерфейсом "наблюдателя"
+ */
 class View : public IObserver
 {
 public:
+    /**
+     * @brief View
+     * @param model - указатель на объект модели (MVC)
+     * @param os - выходной текстовый поток
+     */
     View(Model *model, std::ostream &os = std::cout)
         : m_model{model}
         , m_os{os}
@@ -13,6 +21,9 @@ public:
         m_model->attach(this);
     }
 
+    /**
+     * @brief Обновление представления модели (интерфейс "наблюдателя")
+     */
     void update() override
     {
         m_os << "[LOG]: " << m_model->logMessage() << std::endl;

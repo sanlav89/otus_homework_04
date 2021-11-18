@@ -1,9 +1,12 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-#include "primitive.h"
+#include "iprimitive.h"
 
-class Triangle : public Primitive
+/**
+ * @brief Класс Rectangle - графический примитив "Треугольник"
+ */
+class Triangle : public IPrimitive
 {
 public:
     Triangle() = default;
