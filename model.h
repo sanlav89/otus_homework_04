@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <list>
+#include <vector>
+#include <cassert>
+#include <iterator>
 #include "iobservable.h"
 #include "primitive.h"
 
@@ -17,6 +20,7 @@ public:
     void createNew()
     {
         m_logMessage = "New document was created";
+        removeOldPrimitives();
         notify();
     }
 
@@ -27,6 +31,7 @@ public:
     void importFromFile(const std::string &filename)
     {
         m_logMessage = "Document was imported from file " + filename;
+        removeOldPrimitives();
         notify();
     }
 
@@ -40,15 +45,25 @@ public:
         notify();
     }
 
-    void createPrimitive(Primitive *primitive)
+    /**
+     * @brief Добавление графического примитива
+     * @param primitive - указатель на вновь созданный графический примитив
+     */
+    void addPrimitive(Primitive *primitive)
     {
         m_logMessage = primitive->show() + " was added to document";
+        m_primitives.push_back(primitive);
         notify();
     }
 
-    void deletePrimitive(Primitive *primitive)
+    /**
+     * @brief Удаление графического примитива
+     * @param primitive - указатель на удаляемый графический примитив
+     */
+    void removePrimitive(Primitive *primitive)
     {
-        m_logMessage = primitive->show() + " was deleted from document";
+        m_logMessage = primitive->show() + " was removed from document";
+        m_primitives.remove(primitive);
         notify();
     }
 
@@ -79,20 +94,48 @@ public:
     }
 
     /**
-     * @brief Состояние модели
+     * @brief Лог-сообщение (обновляется после каждого изменения модели).
+     * @return сообщение в формате std::string
      */
-    void info(std::ostream &out = std::cout)
+    std::string logMessage() const
     {
-        out << "[LOG]: " << m_logMessage << std::endl;
-        out << "[STATE]: " << std::endl;
-        // TODO
-        out << "    Document is empty..." << std::endl;
+        return m_logMessage;
+    }
+
+    /**
+     * @brief Список графических примитивов
+     * @return Список указателей на графические примитивы
+     */
+    std::list<Primitive *> primitives() const
+    {
+        return m_primitives;
+    }
+
+    /**
+     * @brief Получение указателя на графический примитив по индексу
+     * @param index[in] - индекс
+     * @return Указатель на графический примитив
+     */
+    Primitive *primitive(int index) const
+    {
+        assert(index >= 0 && index < static_cast<int>(m_primitives.size()));
+        auto front = m_primitives.begin();
+        std::advance(front, index);
+        return *front;
     }
 
 private:
     std::string m_logMessage;
     std::list<IObserver *> m_observers;
+    std::list<Primitive *> m_primitives;
 
+    void removeOldPrimitives()
+    {
+        if (m_primitives.size() > 0) {
+            m_primitives.clear();
+            m_logMessage.append(". All old Primitives was removed");
+        }
+    }
 
 };
 

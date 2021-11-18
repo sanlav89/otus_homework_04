@@ -7,7 +7,7 @@ class Triangle : public Primitive
 {
 public:
     Triangle() = default;
-    std::string show() override
+    std::string show() const override
     {
         return std::string("<TRIANGLE>");
     }

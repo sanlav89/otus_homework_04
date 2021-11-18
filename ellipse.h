@@ -7,7 +7,7 @@ class Ellipse : public Primitive
 {
 public:
     Ellipse() = default;
-    std::string show() override
+    std::string show() const override
     {
         return std::string("(ELLIPSE)");
     }

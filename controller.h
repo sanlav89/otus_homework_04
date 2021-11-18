@@ -26,7 +26,7 @@ public:
      * @brief Действия пользователя векторного редактора
      * @param command[in] - идентификатор команды
      */
-    void performCommand(Command command)
+    void performCommand(Command command, int index = -1)
     {
         switch (command) {
         case Create:
@@ -39,16 +39,16 @@ public:
             m_model->exportToFile("my_file_out.txt");
             break;
         case CreateRectangle:
-            // TODO
+            m_model->addPrimitive(new Rectangle);
             break;
         case CreateEllipse:
-            // TODO
+            m_model->addPrimitive(new Ellipse);
             break;
         case CreateTriangle:
-            // TODO
+            m_model->addPrimitive(new Triangle);
             break;
         case DeleteByIndex:
-            // TODO
+            m_model->removePrimitive(m_model->primitive(index));
             break;
         default:
             break;

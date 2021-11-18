@@ -7,7 +7,7 @@ class Primitive
 {
 public:
     virtual ~Primitive() {}
-    virtual std::string show() = 0;
+    virtual std::string show() const = 0;
 };
 
 #endif // PRIMITIVE_H

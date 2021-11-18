@@ -7,7 +7,7 @@ class Rectangle : public Primitive
 {
 public:
     Rectangle() = default;
-    std::string show() override
+    std::string show() const override
     {
         return std::string("[RECTANGLE]");
     }
