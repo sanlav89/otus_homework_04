@@ -2,6 +2,9 @@
 #define CONTROLLER_H
 
 #include "model.h"
+#include "rectangle.h"
+#include "ellipse.h"
+#include "triangle.h"
 
 class Controller
 {

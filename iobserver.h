@@ -4,7 +4,7 @@
 class IObserver
 {
 public:
-    virtual ~IObserver() {};
+    virtual ~IObserver() {}
     virtual void update() = 0;
 };
 

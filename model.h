@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include "iobservable.h"
+#include "primitive.h"
 
 class Model : public IObservable
 {
@@ -39,15 +40,15 @@ public:
         notify();
     }
 
-    void createPrimitive()
+    void createPrimitive(Primitive *primitive)
     {
-        // TODO
+        m_logMessage = primitive->show() + " was added to document";
         notify();
     }
 
-    void deletePrimitive()
+    void deletePrimitive(Primitive *primitive)
     {
-        // TODO
+        m_logMessage = primitive->show() + " was deleted from document";
         notify();
     }
 
@@ -80,11 +81,12 @@ public:
     /**
      * @brief Состояние модели
      */
-    void info()
+    void info(std::ostream &out = std::cout)
     {
-        std::cout << "[LOG]: " << m_logMessage << std::endl;
-        std::cout << "[STATE]: " << std::endl;
-        std::cout << "    Document is empty..." << std::endl;
+        out << "[LOG]: " << m_logMessage << std::endl;
+        out << "[STATE]: " << std::endl;
+        // TODO
+        out << "    Document is empty..." << std::endl;
     }
 
 private:
