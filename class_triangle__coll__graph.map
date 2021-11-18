@@ -1,0 +1,4 @@
+<map id="Triangle" name="Triangle">
+<area shape="rect" id="node1" title="Класс Rectangle &#45; графический примитив &quot;Треугольник&quot;." alt="" coords="10,80,78,107"/>
+<area shape="rect" id="node2" href="$class_i_primitive.html" title="Класс IPrimitive &#45; интерфейс графического примитива" alt="" coords="5,5,83,32"/>
+</map>

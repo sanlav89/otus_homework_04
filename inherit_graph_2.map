@@ -1,0 +1,4 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="node1" href="$class_i_observer.html" title="Класс IObserver &#45; интерфейс &quot;наблюдателя&quot; (паттерн &quot;наблюдатель&quot;)" alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$class_view.html" title="Класс View (MVC) с интерфейсом &quot;наблюдателя&quot;." alt="" coords="132,5,183,32"/>
+</map>

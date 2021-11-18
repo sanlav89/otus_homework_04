@@ -1,0 +1,4 @@
+<map id="Model" name="Model">
+<area shape="rect" id="node1" title="Класс Model (MVC)" alt="" coords="23,80,80,107"/>
+<area shape="rect" id="node2" href="$class_i_observable.html" title="Класс IObservable &#45; интерфейс наблюдаемого объекта (паттерн &quot;наблюдатель&quot;)" alt="" coords="5,5,97,32"/>
+</map>

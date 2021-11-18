@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>vector_editor: Исходный файл controller.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">vector_editor
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">controller.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="controller_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CONTROLLER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CONTROLLER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="model_8h.html">model.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="rectangle_8h.html">rectangle.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="ellipse_8h.html">ellipse.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="triangle_8h.html">triangle.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_controller.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_controller.html">Controller</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74">   17</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74">Command</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a6d9baea9b3b836378a306dab0a367a28">   18</a></span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a6d9baea9b3b836378a306dab0a367a28">Create</a>,             </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74abedcec009603ba7f6708eff8daf969ea">   19</a></span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74abedcec009603ba7f6708eff8daf969ea">Import</a>,             </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74aec95d3dedf75dc172b96123e04a9d8f0">   20</a></span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74aec95d3dedf75dc172b96123e04a9d8f0">Export</a>,             </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a57494d2e538ebf89cf685895839629bc">   21</a></span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a57494d2e538ebf89cf685895839629bc">CreateRectangle</a>,    </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a2de666c57cb1e3218cd1a228f2b04628">   22</a></span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a2de666c57cb1e3218cd1a228f2b04628">CreateEllipse</a>,      </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74ac7a9f358f441168c1fbe38440eeea79c">   23</a></span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74ac7a9f358f441168c1fbe38440eeea79c">CreateTriangle</a>,     </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a62f945ceaf4dacad6b3032464483a8b9">DeleteByIndex</a>       </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a62f945ceaf4dacad6b3032464483a8b9">   25</a></span>    };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_controller.html#aa3ca66cfc1e32af3f9b7563acf494277">   31</a></span>    <a class="code hl_function" href="class_controller.html#aa3ca66cfc1e32af3f9b7563acf494277">Controller</a>(<a class="code hl_class" href="class_model.html">Model</a> *model) : m_model(model) {}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_controller.html#a6a3c2aed34d1327406c80b3685600ff5">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_controller.html#a6a3c2aed34d1327406c80b3685600ff5">performCommand</a>(<a class="code hl_enumeration" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74">Command</a> command, <span class="keywordtype">int</span> index = -1)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">switch</span> (command) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a6d9baea9b3b836378a306dab0a367a28">Create</a>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#adc4a785044f0bbadc853fab654b20a2e">createNew</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74abedcec009603ba7f6708eff8daf969ea">Import</a>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#aecd7030f32044d0853a3e78bcccfb8dd">importFromFile</a>(<span class="stringliteral">&quot;my_file_in.txt&quot;</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74aec95d3dedf75dc172b96123e04a9d8f0">Export</a>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#a7c5de3c2a2728a29e8897d3525ffecae">exportToFile</a>(<span class="stringliteral">&quot;my_file_out.txt&quot;</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a57494d2e538ebf89cf685895839629bc">CreateRectangle</a>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#a55da310b3971f8e982ec2c791fef3664">addPrimitive</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_rectangle.html">Rectangle</a>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a2de666c57cb1e3218cd1a228f2b04628">CreateEllipse</a>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#a55da310b3971f8e982ec2c791fef3664">addPrimitive</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_ellipse.html">Ellipse</a>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74ac7a9f358f441168c1fbe38440eeea79c">CreateTriangle</a>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#a55da310b3971f8e982ec2c791fef3664">addPrimitive</a>(<span class="keyword">new</span> <a class="code hl_class" href="class_triangle.html">Triangle</a>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a62f945ceaf4dacad6b3032464483a8b9">DeleteByIndex</a>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            m_model-&gt;<a class="code hl_function" href="class_model.html#a7b5123da60d86b4bb7b591814fd3f69d">removePrimitive</a>(m_model-&gt;<a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>(index));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_class" href="class_model.html">Model</a> *m_model;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif </span><span class="comment">// CONTROLLER_H</span></div>
+<div class="ttc" id="aclass_controller_html"><div class="ttname"><a href="class_controller.html">Controller</a></div><div class="ttdoc">Класс Controller (MVC)</div><div class="ttdef"><b>Definition:</b> controller.h:13</div></div>
+<div class="ttc" id="aclass_controller_html_a6a3c2aed34d1327406c80b3685600ff5"><div class="ttname"><a href="class_controller.html#a6a3c2aed34d1327406c80b3685600ff5">Controller::performCommand</a></div><div class="ttdeci">void performCommand(Command command, int index=-1)</div><div class="ttdoc">Действия пользователя векторного редактора</div><div class="ttdef"><b>Definition:</b> controller.h:38</div></div>
+<div class="ttc" id="aclass_controller_html_aa3ca66cfc1e32af3f9b7563acf494277"><div class="ttname"><a href="class_controller.html#aa3ca66cfc1e32af3f9b7563acf494277">Controller::Controller</a></div><div class="ttdeci">Controller(Model *model)</div><div class="ttdoc">Controller (MVC)</div><div class="ttdef"><b>Definition:</b> controller.h:31</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74">Controller::Command</a></div><div class="ttdeci">Command</div><div class="ttdef"><b>Definition:</b> controller.h:17</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74a2de666c57cb1e3218cd1a228f2b04628"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a2de666c57cb1e3218cd1a228f2b04628">Controller::CreateEllipse</a></div><div class="ttdeci">@ CreateEllipse</div><div class="ttdef"><b>Definition:</b> controller.h:22</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74a57494d2e538ebf89cf685895839629bc"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a57494d2e538ebf89cf685895839629bc">Controller::CreateRectangle</a></div><div class="ttdeci">@ CreateRectangle</div><div class="ttdef"><b>Definition:</b> controller.h:21</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74a62f945ceaf4dacad6b3032464483a8b9"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a62f945ceaf4dacad6b3032464483a8b9">Controller::DeleteByIndex</a></div><div class="ttdeci">@ DeleteByIndex</div><div class="ttdef"><b>Definition:</b> controller.h:24</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74a6d9baea9b3b836378a306dab0a367a28"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a6d9baea9b3b836378a306dab0a367a28">Controller::Create</a></div><div class="ttdeci">@ Create</div><div class="ttdef"><b>Definition:</b> controller.h:18</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74abedcec009603ba7f6708eff8daf969ea"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74abedcec009603ba7f6708eff8daf969ea">Controller::Import</a></div><div class="ttdeci">@ Import</div><div class="ttdef"><b>Definition:</b> controller.h:19</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74ac7a9f358f441168c1fbe38440eeea79c"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74ac7a9f358f441168c1fbe38440eeea79c">Controller::CreateTriangle</a></div><div class="ttdeci">@ CreateTriangle</div><div class="ttdef"><b>Definition:</b> controller.h:23</div></div>
+<div class="ttc" id="aclass_controller_html_ad6553ff0f73e3cb2f4da3de124d2cd74aec95d3dedf75dc172b96123e04a9d8f0"><div class="ttname"><a href="class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74aec95d3dedf75dc172b96123e04a9d8f0">Controller::Export</a></div><div class="ttdeci">@ Export</div><div class="ttdef"><b>Definition:</b> controller.h:20</div></div>
+<div class="ttc" id="aclass_ellipse_html"><div class="ttname"><a href="class_ellipse.html">Ellipse</a></div><div class="ttdoc">Класс Ellipse - графический примитив &quot;Эллипс&quot;.</div><div class="ttdef"><b>Definition:</b> ellipse.h:10</div></div>
+<div class="ttc" id="aclass_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdoc">Класс Model (MVC)</div><div class="ttdef"><b>Definition:</b> model.h:16</div></div>
+<div class="ttc" id="aclass_model_html_a55da310b3971f8e982ec2c791fef3664"><div class="ttname"><a href="class_model.html#a55da310b3971f8e982ec2c791fef3664">Model::addPrimitive</a></div><div class="ttdeci">void addPrimitive(IPrimitive *primitive)</div><div class="ttdoc">Добавление графического примитива</div><div class="ttdef"><b>Definition:</b> model.h:55</div></div>
+<div class="ttc" id="aclass_model_html_a7b5123da60d86b4bb7b591814fd3f69d"><div class="ttname"><a href="class_model.html#a7b5123da60d86b4bb7b591814fd3f69d">Model::removePrimitive</a></div><div class="ttdeci">void removePrimitive(IPrimitive *primitive)</div><div class="ttdoc">Удаление графического примитива</div><div class="ttdef"><b>Definition:</b> model.h:66</div></div>
+<div class="ttc" id="aclass_model_html_a7c5de3c2a2728a29e8897d3525ffecae"><div class="ttname"><a href="class_model.html#a7c5de3c2a2728a29e8897d3525ffecae">Model::exportToFile</a></div><div class="ttdeci">void exportToFile(const std::string &amp;filename)</div><div class="ttdoc">Экспорт документа в файл</div><div class="ttdef"><b>Definition:</b> model.h:45</div></div>
+<div class="ttc" id="aclass_model_html_a8b7d14e15baf1c80934e974384718a66"><div class="ttname"><a href="class_model.html#a8b7d14e15baf1c80934e974384718a66">Model::primitive</a></div><div class="ttdeci">IPrimitive * primitive(int index) const</div><div class="ttdoc">Получение указателя на графический примитив по индексу</div><div class="ttdef"><b>Definition:</b> model.h:122</div></div>
+<div class="ttc" id="aclass_model_html_adc4a785044f0bbadc853fab654b20a2e"><div class="ttname"><a href="class_model.html#adc4a785044f0bbadc853fab654b20a2e">Model::createNew</a></div><div class="ttdeci">void createNew()</div><div class="ttdoc">Создание нового документа</div><div class="ttdef"><b>Definition:</b> model.h:23</div></div>
+<div class="ttc" id="aclass_model_html_aecd7030f32044d0853a3e78bcccfb8dd"><div class="ttname"><a href="class_model.html#aecd7030f32044d0853a3e78bcccfb8dd">Model::importFromFile</a></div><div class="ttdeci">void importFromFile(const std::string &amp;filename)</div><div class="ttdoc">Импорт документа из файла</div><div class="ttdef"><b>Definition:</b> model.h:34</div></div>
+<div class="ttc" id="aclass_rectangle_html"><div class="ttname"><a href="class_rectangle.html">Rectangle</a></div><div class="ttdoc">Класс Rectangle - графический примитив &quot;Прямоугольник&quot;.</div><div class="ttdef"><b>Definition:</b> rectangle.h:10</div></div>
+<div class="ttc" id="aclass_triangle_html"><div class="ttname"><a href="class_triangle.html">Triangle</a></div><div class="ttdoc">Класс Rectangle - графический примитив &quot;Треугольник&quot;.</div><div class="ttdef"><b>Definition:</b> triangle.h:10</div></div>
+<div class="ttc" id="aellipse_8h_html"><div class="ttname"><a href="ellipse_8h.html">ellipse.h</a></div></div>
+<div class="ttc" id="amodel_8h_html"><div class="ttname"><a href="model_8h.html">model.h</a></div></div>
+<div class="ttc" id="arectangle_8h_html"><div class="ttname"><a href="rectangle_8h.html">rectangle.h</a></div></div>
+<div class="ttc" id="atriangle_8h_html"><div class="ttname"><a href="triangle_8h.html">triangle.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>
