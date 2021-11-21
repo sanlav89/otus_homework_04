@@ -6,74 +6,79 @@
 #include <vector>
 #include <cassert>
 #include <iterator>
-#include "iobservable.h"
-#include "iprimitive.h"
+#include "imodel.h"
 
 /**
  * @brief Класс Model (MVC)
  */
-class Model : public IObservable
+class Model : public IModel
 {
 public:
-    Model() = default;
+    Model()
+    {
+        m_logMessage = "";
+        m_currentPrimitive = nullptr;
+    }
 
     /**
      * @brief Создание нового документа
      */
-    void createNew()
+    void createNew() override
     {
         m_logMessage = "New document was created";
         removeOldPrimitives();
-        notify();
+        notifyObservers();
     }
 
     /**
      * @brief Импорт документа из файла
      * @param filename[in] - имя файла
      */
-    void importFromFile(const std::string &filename)
+    void importFromFile(const std::string &filename) override
     {
         m_logMessage = "Document was imported from file " + filename;
         removeOldPrimitives();
-        notify();
+        notifyObservers();
     }
 
     /**
      * @brief Экспорт документа в файл
      * @param filename[in] - имя файла
      */
-    void exportToFile(const std::string &filename)
+    void exportToFile(const std::string &filename) override
     {
         m_logMessage = "Document was exported to file " + filename;
-        notify();
+        notifyObservers();
     }
 
     /**
      * @brief Добавление графического примитива
      * @param primitive - указатель на вновь созданный графический примитив
      */
-    void addPrimitive(IPrimitive *primitive)
+    void addPrimitive(IPrimitive *primitive) override
     {
         m_logMessage = primitive->show() + " was added to document";
         m_primitives.push_back(primitive);
-        notify();
+        m_currentPrimitive = m_primitives.back();
+        notifyObservers();
     }
 
     /**
      * @brief Удаление графического примитива
      * @param primitive - указатель на удаляемый графический примитив
      */
-    void removePrimitive(IPrimitive *primitive)
+    void removePrimitive(IPrimitive *primitive) override
     {
         m_logMessage = primitive->show() + " was removed from document";
         m_primitives.remove(primitive);
-        notify();
+        m_currentPrimitive = m_primitives.size() > 0 ? m_primitives.back() : nullptr;
+        notifyObservers();
     }
 
     /**
      * @brief Добавление "наблюдателя"
      */
-    void attach(IObserver *observer) override
+    void attachObserver(IObserver *observer) override
     {
         m_observers.push_back(observer);
     }
@@ -81,7 +86,7 @@ public:
     /**
      * @brief Удаление "наблюдателя"
      */
-    void detach(IObserver *observer) override
+    void detachObserver(IObserver *observer) override
     {
         m_observers.remove(observer);
     }
@@ -89,7 +94,7 @@ public:
     /**
      * @brief Оповещение "наблюдателей" о состоянии модели
      */
-    void notify() override
+    void notifyObservers() override
     {
         for (auto observer : m_observers) {
             observer->update();
@@ -97,37 +102,38 @@ public:
     }
 
     /**
-     * @brief Лог-сообщение (обновляется после каждого изменения модели).
+     * @brief Выбор текущего примитива по индексу
+     * @param index[in] - индекс
+     */
+    void selectPrimitive(int index) override
+    {
+        if (index >= 0 && index < static_cast<int>(m_primitives.size())) {
+            auto front = m_primitives.begin();
+            std::advance(front, index);
+            m_currentPrimitive = *front;
+        }
+    }
+
+    /**
+     * @brief Статус-сообщение о состоянии модели (обновляется после каждого изменения модели).
      * @return сообщение в формате std::string
      */
-    std::string logMessage() const
+    std::string modelState() const override
     {
-        return m_logMessage;
+        return "|-LOG---| " + m_logMessage + "\n" + primitivesState();
     }
 
     /**
-     * @brief Список графических примитивов
-     * @return Список указателей на графические примитивы
+     * @brief Текущий (активный) примитив
+     * @return Указатель на текущий (активный примитив)
      */
-    std::list<IPrimitive *> primitives() const
+    IPrimitive *currentPrimitive() const override
     {
-        return m_primitives;
-    }
-
-    /**
-     * @brief Получение указателя на графический примитив по индексу
-     * @param index[in] - индекс
-     * @return Указатель на графический примитив
-     */
-    IPrimitive *primitive(int index) const
-    {
-        assert(index >= 0 && index < static_cast<int>(m_primitives.size()));
-        auto front = m_primitives.begin();
-        std::advance(front, index);
-        return *front;
+        return  m_currentPrimitive;
     }
 
 private:
+    IPrimitive *m_currentPrimitive;
     std::string m_logMessage;
     std::list<IObserver *> m_observers;
     std::list<IPrimitive *> m_primitives;
@@ -138,6 +144,24 @@ private:
             m_primitives.clear();
             m_logMessage.append(". All old Primitives was removed");
         }
+        m_currentPrimitive = nullptr;
+    }
+
+    std::string primitivesState() const
+    {
+        std::string result;
+        result += "|-STATE-| ";
+        if (m_primitives.empty()) {
+            result += "Document is empty... \n";
+        } else {
+            result += "Primitives: \n";
+            auto index = 0;
+            for (auto primitive : m_primitives) {
+                result += "    " + std::to_string(index++) + ": " + primitive->show() + "\n";
+            }
+        }
+        result += "\n";
+        return result;
     }
 
 };
