@@ -59,19 +59,19 @@ public:
                 && action != Action::Export);
         switch (action) {
         case Action::Create:
-            m_model->createNew();
+            m_controller->createNew();
             break;
         case Action::CreateRectangle:
-            m_model->addPrimitive(new Rectangle);
+            m_controller->addRectangle(new Rectangle);
             break;
         case Action::CreateEllipse:
-            m_model->addPrimitive(new Ellipse);
+            m_controller->addEllipse(new Ellipse);
             break;
         case Action::CreateTriangle:
-            m_model->addPrimitive(new Triangle);
+            m_controller->addTriangle(new Triangle);
             break;
         case Action::RemovePrimitive:
-            m_model->removePrimitive(m_model->currentPrimitive());
+            m_controller->removePrimitive(m_model->currentPrimitive());
             break;
         default:
             break;

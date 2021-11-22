@@ -4,7 +4,7 @@
 #include "iprimitive.h"
 
 /**
- * @brief Класс Rectangle - графический примитив "Треугольник"
+ * @brief Класс Triangle - графический примитив "Треугольник"
  */
 class Triangle : public IPrimitive
 {
