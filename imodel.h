@@ -4,6 +4,9 @@
 #include "iprimitive.h"
 #include "iobserver.h"
 
+/**
+ * @brief Класс IModel - интерфейс модели (MVC)
+ */
 class IModel
 {
 public:

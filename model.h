@@ -20,6 +20,14 @@ public:
         m_currentPrimitive = nullptr;
     }
 
+    ~Model()
+    {
+        while (m_primitives.size() > 0) {
+            delete m_primitives.back();
+            m_primitives.pop_back();
+        }
+    }
+
     /**
      * @brief Создание нового документа
      */
@@ -32,7 +40,7 @@ public:
 
     /**
      * @brief Импорт документа из файла
-     * @param filename[in] - имя файла
+     * @param[in] filename - имя файла
      */
     void importFromFile(const std::string &filename) override
     {
@@ -43,7 +51,7 @@ public:
 
     /**
      * @brief Экспорт документа в файл
-     * @param filename[in] - имя файла
+     * @param[in] filename - имя файла
      */
     void exportToFile(const std::string &filename) override
     {
@@ -53,7 +61,7 @@ public:
 
     /**
      * @brief Добавление графического примитива
-     * @param primitive - указатель на вновь созданный графический примитив
+     * @param[in] primitive - указатель на вновь созданный графический примитив
      */
     void addPrimitive(IPrimitive *primitive) override
     {
@@ -65,12 +73,13 @@ public:
 
     /**
      * @brief Удаление графического примитива
-     * @param primitive - указатель на удаляемый графический примитив
+     * @param[in] primitive - указатель на удаляемый графический примитив
      */
     void removePrimitive(IPrimitive *primitive) override
     {
         m_logMessage = primitive->show() + " was removed from document";
         m_primitives.remove(primitive);
+        delete primitive;
         m_currentPrimitive = m_primitives.size() > 0 ? m_primitives.back() : nullptr;
         notifyObservers();
     }
@@ -103,7 +112,7 @@ public:
 
     /**
      * @brief Выбор текущего примитива по индексу
-     * @param index[in] - индекс
+     * @param[in] index - индекс
      */
     void selectPrimitive(int index) override
     {

@@ -90,8 +90,8 @@ public:
 
     /**
      * @brief Имитация событий View (с дополнительныйм параметром типа string)
-     * @param action - идентификатор события
-     * @param filename - имя импортируемого / экспортируемого файла
+     * @param[in] action - идентификатор события
+     * @param[in] filename - имя импортируемого / экспортируемого файла
      */
     void execute(Action action, const std::string &filename)
     {

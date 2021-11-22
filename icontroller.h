@@ -5,6 +5,9 @@
 #include "ellipse.h"
 #include "triangle.h"
 
+/**
+ * @brief Класс IController - интерфейс контроллера (MVC)
+ */
 class IController
 {
 public:

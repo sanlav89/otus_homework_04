@@ -25,5 +25,9 @@ int main(void)
     editor->execute(View::Action::Export, "my_file_out.txt");
     editor->execute(View::Action::Import, "my_file_in.txt");
 
+    delete editor;
+    delete controller;
+    delete model;
+
     return 0;
 }
