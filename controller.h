@@ -1,71 +1,94 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "model.h"
-#include "rectangle.h"
-#include "ellipse.h"
-#include "triangle.h"
+#include "imodel.h"
+#include "icontroller.h"
 
 /**
  * @brief Класс Controller (MVC)
  */
-class Controller
+class Controller : public IController
 {
 public:
-
-    /*! Идентификаторы команд редактора */
-    enum Command {
-        Create,             /*!< для создания нового документа */
-        Import,             /*!< для импорта документа из файла */
-        Export,             /*!< для экспорта документа в файл */
-        CreateRectangle,    /*!< для создания примитива "Прямоугольник" */
-        CreateEllipse,      /*!< для создания примитива "Эллипс" */
-        CreateTriangle,     /*!< для создания примитива "Треугольник" */
-        DeleteByIndex       /*!< для удаления примитива по индексу */
-    };
-
     /**
      * @brief Controller (MVC)
      * @param model - указатель на модель (MVC)
      */
-    Controller(Model *model) : m_model(model) {}
+    Controller(IModel *model) : m_model(model) {}
 
     /**
-     * @brief Действия пользователя векторного редактора
-     * @param command[in] - идентификатор команды
-     * @param index[in] - индекс удалаемого примитива
+     * @brief Создание нового документа
      */
-    void performCommand(Command command, int index = -1)
+    void createNew() override
     {
-        switch (command) {
-        case Create:
-            m_model->createNew();
-            break;
-        case Import:
-            m_model->importFromFile("my_file_in.txt");
-            break;
-        case Export:
-            m_model->exportToFile("my_file_out.txt");
-            break;
-        case CreateRectangle:
-            m_model->addPrimitive(new Rectangle);
-            break;
-        case CreateEllipse:
-            m_model->addPrimitive(new Ellipse);
-            break;
-        case CreateTriangle:
-            m_model->addPrimitive(new Triangle);
-            break;
-        case DeleteByIndex:
-            m_model->removePrimitive(m_model->primitive(index));
-            break;
-        default:
-            break;
-        }
+        m_model->createNew();
+    }
+
+    /**
+     * @brief Импорт документа из файла
+     * @param[in] filename - имя файла
+     */
+    void importFromFile(const std::string &filename) override
+    {
+        m_model->importFromFile(filename);
+    }
+
+    /**
+     * @brief Экспорт документа в файл
+     * @param[in] filename - имя файла
+     */
+    void exportToFile(const std::string &filename) override
+    {
+        m_model->exportToFile(filename);
+    }
+
+    /**
+     * @brief Добавление прямоугольника
+     * @param[in] rectangle - указатель на прямоугольник
+     */
+    void addRectangle(Rectangle *rectangle) override
+    {
+        m_model->addPrimitive(rectangle);
+    }
+
+    /**
+     * @brief Добавление эллипса
+     * @param[in] ellipse - указатель на эллипс
+     */
+    void addEllipse(Ellipse *ellipse) override
+    {
+        m_model->addPrimitive(ellipse);
+    }
+
+    /**
+     * @brief Добавление треугольника
+     * @param[in] triangle - указатель на треугольник
+     */
+    void addTriangle(Triangle *triangle) override
+    {
+        m_model->addPrimitive(triangle);
+    }
+
+    /**
+     * @brief Удаление графического примитива
+     * @param[in] primitive - указатель на удаляемый графический примитив
+     */
+    void removePrimitive(IPrimitive *primitive) override
+    {
+        m_model->removePrimitive(primitive);
+    }
+
+    /**
+     * @brief Выбор текущего примитива по индексу
+     * @param[in] index - индекс
+     */
+    void selectPrimitive(int index) override
+    {
+        m_model->selectPrimitive(index);
     }
 
 private:
-    Model *m_model;
+    IModel *m_model;
 };
 
 #endif // CONTROLLER_H

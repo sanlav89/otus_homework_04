@@ -17,15 +17,15 @@ set (
 set (
     HEADERS
         iobserver.h
-        iobservable.h
-        model.h
-        view.h
-        controller.h
+        imodel.h
+        icontroller.h
         iprimitive.h
         rectangle.h
         ellipse.h
         triangle.h
-        vectoreditor.h
+        model.h
+        view.h
+        controller.h
 )
 
 # EXECUTABLE
