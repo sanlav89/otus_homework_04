@@ -1,13 +1,9 @@
-#include <iostream>
-
 #include "model.h"
 #include "view.h"
 #include "controller.h"
 
 int main(void)
 {
-    std::cout << "Hello from Amazing Vector Editor!" << std::endl << std::endl;
-
     Model *model = new Model;
     Controller *controller = new Controller(model);
     View *editor = new View(model, controller);

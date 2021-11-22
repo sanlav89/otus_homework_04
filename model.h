@@ -1,11 +1,8 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <iostream>
 #include <list>
-#include <vector>
 #include <cassert>
-#include <iterator>
 #include "imodel.h"
 
 /**

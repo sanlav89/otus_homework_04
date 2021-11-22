@@ -35,6 +35,7 @@ public:
         , m_controller{controller}
         , m_os{os}
     {
+        m_os << "Hello from Amazing Vector Editor!" << std::endl << std::endl;
         m_model->attachObserver(this);
     }
 
