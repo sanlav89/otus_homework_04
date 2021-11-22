@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['create_0',['Create',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a6d9baea9b3b836378a306dab0a367a28',1,'Controller']]],
-  ['createellipse_1',['CreateEllipse',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a2de666c57cb1e3218cd1a228f2b04628',1,'Controller']]],
-  ['createrectangle_2',['CreateRectangle',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a57494d2e538ebf89cf685895839629bc',1,'Controller']]],
-  ['createtriangle_3',['CreateTriangle',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74ac7a9f358f441168c1fbe38440eeea79c',1,'Controller']]]
+  ['create_0',['Create',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa686e697538050e4664636337cc3b834f',1,'View']]],
+  ['createellipse_1',['CreateEllipse',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa1264bbbd5b7e67333a47f50267497245',1,'View']]],
+  ['createrectangle_2',['CreateRectangle',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa412c0dded4856d3645674f5fe8eb15de',1,'View']]],
+  ['createtriangle_3',['CreateTriangle',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa8ecac9ebb25d4fc6eabd255fe1b36a28',1,'View']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['command_0',['Command',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74',1,'Controller']]]
+  ['action_0',['Action',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ff',1,'View']]]
 ];

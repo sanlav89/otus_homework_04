@@ -1,12 +1,12 @@
 <map id="model.h" name="model.h">
-<area shape="rect" id="node1" title=" " alt="" coords="247,5,313,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="203,5,269,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,77,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="102,80,141,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="164,80,223,107"/>
 <area shape="rect" id="node5" title=" " alt="" coords="247,80,313,107"/>
 <area shape="rect" id="node6" title=" " alt="" coords="337,80,399,107"/>
-<area shape="rect" id="node7" href="$iobservable_8h.html" title=" " alt="" coords="424,80,523,107"/>
-<area shape="rect" id="node9" href="$iprimitive_8h.html" title=" " alt="" coords="547,80,631,107"/>
-<area shape="rect" id="node8" href="$iobserver_8h.html" title=" " alt="" coords="431,155,516,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="562,155,617,181"/>
+<area shape="rect" id="node7" href="$imodel_8h.html" title=" " alt="" coords="423,80,494,107"/>
+<area shape="rect" id="node8" href="$iprimitive_8h.html" title=" " alt="" coords="362,155,446,181"/>
+<area shape="rect" id="node10" href="$iobserver_8h.html" title=" " alt="" coords="471,155,556,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="377,229,431,256"/>
 </map>

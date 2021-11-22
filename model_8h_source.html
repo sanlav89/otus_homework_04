@@ -73,118 +73,152 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;iterator&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="iobservable_8h.html">iobservable.h</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="iprimitive_8h.html">iprimitive.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_model.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="class_model.html">Model</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_observable.html">IObservable</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_model.html#ab5bdabea36b1d1bee80151e2da913373">   18</a></span>    <a class="code hl_function" href="class_model.html#ab5bdabea36b1d1bee80151e2da913373">Model</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_model.html#adc4a785044f0bbadc853fab654b20a2e">   23</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#adc4a785044f0bbadc853fab654b20a2e">createNew</a>()</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="imodel_8h.html">imodel.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_model.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_model.html">Model</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_model.html">IModel</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_model.html#ae3b375de5f6df4faf74a95d64748e048">   17</a></span>    <a class="code hl_function" href="class_model.html#ae3b375de5f6df4faf74a95d64748e048">Model</a>()</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        m_logMessage = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        m_currentPrimitive = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_model.html#ad6ebd2062a0b823db841a0b88baac4c0">   23</a></span>    <a class="code hl_function" href="class_model.html#ad6ebd2062a0b823db841a0b88baac4c0">~Model</a>()</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        m_logMessage = <span class="stringliteral">&quot;New document was created&quot;</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        removeOldPrimitives();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_function" href="class_model.html#a563ebd61f8f277127da044feab4594de">notify</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_model.html#aecd7030f32044d0853a3e78bcccfb8dd">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#aecd7030f32044d0853a3e78bcccfb8dd">importFromFile</a>(<span class="keyword">const</span> std::string &amp;filename)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        m_logMessage = <span class="stringliteral">&quot;Document was imported from file &quot;</span> + filename;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">while</span> (m_primitives.size() &gt; 0) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keyword">delete</span> m_primitives.back();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            m_primitives.pop_back();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_model.html#abbcdc1a415a01d202fa2af394118437b">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#abbcdc1a415a01d202fa2af394118437b">createNew</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        m_logMessage = <span class="stringliteral">&quot;New document was created&quot;</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        removeOldPrimitives();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_function" href="class_model.html#a563ebd61f8f277127da044feab4594de">notify</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_function" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">notifyObservers</a>();</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_model.html#a7c5de3c2a2728a29e8897d3525ffecae">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a7c5de3c2a2728a29e8897d3525ffecae">exportToFile</a>(<span class="keyword">const</span> std::string &amp;filename)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        m_logMessage = <span class="stringliteral">&quot;Document was exported to file &quot;</span> + filename;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_function" href="class_model.html#a563ebd61f8f277127da044feab4594de">notify</a>();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_model.html#a55da310b3971f8e982ec2c791fef3664">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a55da310b3971f8e982ec2c791fef3664">addPrimitive</a>(<a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *<a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        m_logMessage = <a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>-&gt;<a class="code hl_function" href="class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3">show</a>() + <span class="stringliteral">&quot; was added to document&quot;</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        m_primitives.push_back(<a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="class_model.html#a563ebd61f8f277127da044feab4594de">notify</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_model.html#ae430330db03575476e6ab2703b913c80">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#ae430330db03575476e6ab2703b913c80">importFromFile</a>(<span class="keyword">const</span> std::string &amp;filename)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        m_logMessage = <span class="stringliteral">&quot;Document was imported from file &quot;</span> + filename;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        removeOldPrimitives();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_function" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">notifyObservers</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_model.html#ade31fa80cf1c94e5ffdffcee027356fe">   56</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#ade31fa80cf1c94e5ffdffcee027356fe">exportToFile</a>(<span class="keyword">const</span> std::string &amp;filename)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        m_logMessage = <span class="stringliteral">&quot;Document was exported to file &quot;</span> + filename;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">notifyObservers</a>();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_model.html#a7b5123da60d86b4bb7b591814fd3f69d">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a7b5123da60d86b4bb7b591814fd3f69d">removePrimitive</a>(<a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *<a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>)</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        m_logMessage = <a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>-&gt;<a class="code hl_function" href="class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3">show</a>() + <span class="stringliteral">&quot; was removed from document&quot;</span>;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        m_primitives.remove(<a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="class_model.html#a563ebd61f8f277127da044feab4594de">notify</a>();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_model.html#a99a8e8386274d4e2bd2212e1be6243cf">   76</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a99a8e8386274d4e2bd2212e1be6243cf">attach</a>(<a class="code hl_class" href="class_i_observer.html">IObserver</a> *observer)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        m_observers.push_back(observer);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_model.html#ab7827eaf272ab205c099acd361ec3166">   84</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#ab7827eaf272ab205c099acd361ec3166">detach</a>(<a class="code hl_class" href="class_i_observer.html">IObserver</a> *observer)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        m_observers.remove(observer);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_model.html#a563ebd61f8f277127da044feab4594de">   92</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a563ebd61f8f277127da044feab4594de">notify</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> observer : m_observers) {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            observer-&gt;update();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        }</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="class_model.html#af9d192c0c4684e195b7582182e4bfe9e">  103</a></span>    std::string <a class="code hl_function" href="class_model.html#af9d192c0c4684e195b7582182e4bfe9e">logMessage</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> m_logMessage;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_model.html#af06437f32bae51545dcabf1634d6d120">  112</a></span>    std::list&lt;IPrimitive *&gt; <a class="code hl_function" href="class_model.html#af06437f32bae51545dcabf1634d6d120">primitives</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> m_primitives;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">  122</a></span>    <a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *<a class="code hl_function" href="class_model.html#a8b7d14e15baf1c80934e974384718a66">primitive</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        assert(index &gt;= 0 &amp;&amp; index &lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(m_primitives.size()));</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keyword">auto</span> front = m_primitives.begin();</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        std::advance(front, index);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> *front;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    std::string m_logMessage;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    std::list&lt;IObserver *&gt; m_observers;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::list&lt;IPrimitive *&gt; m_primitives;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_model.html#a053bd94cb005a8ea49b24982d84b7884">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a053bd94cb005a8ea49b24982d84b7884">addPrimitive</a>(<a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *primitive)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        m_logMessage = primitive-&gt;<a class="code hl_function" href="class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3">show</a>() + <span class="stringliteral">&quot; was added to document&quot;</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        m_primitives.push_back(primitive);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        m_currentPrimitive = m_primitives.back();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_function" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">notifyObservers</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_model.html#a1d454974276191e0c01791625e13a609">   78</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a1d454974276191e0c01791625e13a609">removePrimitive</a>(<a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *primitive)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        m_logMessage = primitive-&gt;<a class="code hl_function" href="class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3">show</a>() + <span class="stringliteral">&quot; was removed from document&quot;</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        m_primitives.remove(primitive);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">delete</span> primitive;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        m_currentPrimitive = m_primitives.size() &gt; 0 ? m_primitives.back() : <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">notifyObservers</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_model.html#a57659b67c8959c03bba477b09ae60e57">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a57659b67c8959c03bba477b09ae60e57">attachObserver</a>(<a class="code hl_class" href="class_i_observer.html">IObserver</a> *observer)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        m_observers.push_back(observer);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_model.html#ac2538530be9fe227a40b8d1e653e6762">   98</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#ac2538530be9fe227a40b8d1e653e6762">detachObserver</a>(<a class="code hl_class" href="class_i_observer.html">IObserver</a> *observer)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        m_observers.remove(observer);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">  106</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">notifyObservers</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> observer : m_observers) {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            observer-&gt;update();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_model.html#a9e6bdb929068ed1c628f715bfc4365bc">  117</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_model.html#a9e6bdb929068ed1c628f715bfc4365bc">selectPrimitive</a>(<span class="keywordtype">int</span> index)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (index &gt;= 0 &amp;&amp; index &lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(m_primitives.size())) {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keyword">auto</span> front = m_primitives.begin();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            std::advance(front, index);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            m_currentPrimitive = *front;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="class_model.html#a3561f857cdc80e803ae122187da2e247">  130</a></span>    std::string <a class="code hl_function" href="class_model.html#a3561f857cdc80e803ae122187da2e247">modelState</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;|-LOG---| &quot;</span> + m_logMessage + <span class="stringliteral">&quot;\n&quot;</span> + primitivesState();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> removeOldPrimitives()</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    {</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">if</span> (m_primitives.size() &gt; 0) {</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            m_primitives.clear();</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            m_logMessage.append(<span class="stringliteral">&quot;. All old Primitives was removed&quot;</span>);</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>};</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="preprocessor">#endif </span><span class="comment">// MODEL_H</span></div>
-<div class="ttc" id="aclass_i_observable_html"><div class="ttname"><a href="class_i_observable.html">IObservable</a></div><div class="ttdoc">Класс IObservable - интерфейс наблюдаемого объекта (паттерн &quot;наблюдатель&quot;)</div><div class="ttdef"><b>Definition:</b> iobservable.h:10</div></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="class_model.html#a1791fc33f1ef1f63e48caf5c12e01bc4">  139</a></span>    <a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *<a class="code hl_function" href="class_model.html#a1791fc33f1ef1f63e48caf5c12e01bc4">currentPrimitive</a>()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">return</span>  m_currentPrimitive;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_class" href="class_i_primitive.html">IPrimitive</a> *m_currentPrimitive;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    std::string m_logMessage;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    std::list&lt;IObserver *&gt; m_observers;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    std::list&lt;IPrimitive *&gt; m_primitives;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordtype">void</span> removeOldPrimitives()</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">if</span> (m_primitives.size() &gt; 0) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            m_primitives.clear();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            m_logMessage.append(<span class="stringliteral">&quot;. All old Primitives was removed&quot;</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        m_currentPrimitive = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    std::string primitivesState()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        std::string result;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        result += <span class="stringliteral">&quot;|-STATE-| &quot;</span>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">if</span> (m_primitives.empty()) {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            result += <span class="stringliteral">&quot;Document is empty... \n&quot;</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            result += <span class="stringliteral">&quot;Primitives: \n&quot;</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keyword">auto</span> index = 0;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> primitive : m_primitives) {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                result += <span class="stringliteral">&quot;    &quot;</span> + std::to_string(index++) + <span class="stringliteral">&quot;: &quot;</span> + primitive-&gt;<a class="code hl_function" href="class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3">show</a>() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        result += <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>};</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#endif </span><span class="comment">// MODEL_H</span></div>
+<div class="ttc" id="aclass_i_model_html"><div class="ttname"><a href="class_i_model.html">IModel</a></div><div class="ttdoc">Класс IModel - интерфейс модели (MVC)</div><div class="ttdef"><b>Definition:</b> imodel.h:11</div></div>
 <div class="ttc" id="aclass_i_observer_html"><div class="ttname"><a href="class_i_observer.html">IObserver</a></div><div class="ttdoc">Класс IObserver - интерфейс &quot;наблюдателя&quot; (паттерн &quot;наблюдатель&quot;)</div><div class="ttdef"><b>Definition:</b> iobserver.h:8</div></div>
 <div class="ttc" id="aclass_i_primitive_html"><div class="ttname"><a href="class_i_primitive.html">IPrimitive</a></div><div class="ttdoc">Класс IPrimitive - интерфейс графического примитива</div><div class="ttdef"><b>Definition:</b> iprimitive.h:10</div></div>
 <div class="ttc" id="aclass_i_primitive_html_a0db177d967e416e5f6695023ee586ba3"><div class="ttname"><a href="class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3">IPrimitive::show</a></div><div class="ttdeci">virtual std::string show() const =0</div></div>
-<div class="ttc" id="aclass_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdoc">Класс Model (MVC)</div><div class="ttdef"><b>Definition:</b> model.h:16</div></div>
-<div class="ttc" id="aclass_model_html_a55da310b3971f8e982ec2c791fef3664"><div class="ttname"><a href="class_model.html#a55da310b3971f8e982ec2c791fef3664">Model::addPrimitive</a></div><div class="ttdeci">void addPrimitive(IPrimitive *primitive)</div><div class="ttdoc">Добавление графического примитива</div><div class="ttdef"><b>Definition:</b> model.h:55</div></div>
-<div class="ttc" id="aclass_model_html_a563ebd61f8f277127da044feab4594de"><div class="ttname"><a href="class_model.html#a563ebd61f8f277127da044feab4594de">Model::notify</a></div><div class="ttdeci">void notify() override</div><div class="ttdoc">Оповещение &quot;наблюдателей&quot; о состоянии модели</div><div class="ttdef"><b>Definition:</b> model.h:92</div></div>
-<div class="ttc" id="aclass_model_html_a7b5123da60d86b4bb7b591814fd3f69d"><div class="ttname"><a href="class_model.html#a7b5123da60d86b4bb7b591814fd3f69d">Model::removePrimitive</a></div><div class="ttdeci">void removePrimitive(IPrimitive *primitive)</div><div class="ttdoc">Удаление графического примитива</div><div class="ttdef"><b>Definition:</b> model.h:66</div></div>
-<div class="ttc" id="aclass_model_html_a7c5de3c2a2728a29e8897d3525ffecae"><div class="ttname"><a href="class_model.html#a7c5de3c2a2728a29e8897d3525ffecae">Model::exportToFile</a></div><div class="ttdeci">void exportToFile(const std::string &amp;filename)</div><div class="ttdoc">Экспорт документа в файл</div><div class="ttdef"><b>Definition:</b> model.h:45</div></div>
-<div class="ttc" id="aclass_model_html_a8b7d14e15baf1c80934e974384718a66"><div class="ttname"><a href="class_model.html#a8b7d14e15baf1c80934e974384718a66">Model::primitive</a></div><div class="ttdeci">IPrimitive * primitive(int index) const</div><div class="ttdoc">Получение указателя на графический примитив по индексу</div><div class="ttdef"><b>Definition:</b> model.h:122</div></div>
-<div class="ttc" id="aclass_model_html_a99a8e8386274d4e2bd2212e1be6243cf"><div class="ttname"><a href="class_model.html#a99a8e8386274d4e2bd2212e1be6243cf">Model::attach</a></div><div class="ttdeci">void attach(IObserver *observer) override</div><div class="ttdoc">Добавление &quot;наблюдателя&quot;.</div><div class="ttdef"><b>Definition:</b> model.h:76</div></div>
-<div class="ttc" id="aclass_model_html_ab5bdabea36b1d1bee80151e2da913373"><div class="ttname"><a href="class_model.html#ab5bdabea36b1d1bee80151e2da913373">Model::Model</a></div><div class="ttdeci">Model()=default</div></div>
-<div class="ttc" id="aclass_model_html_ab7827eaf272ab205c099acd361ec3166"><div class="ttname"><a href="class_model.html#ab7827eaf272ab205c099acd361ec3166">Model::detach</a></div><div class="ttdeci">void detach(IObserver *observer) override</div><div class="ttdoc">Удаление &quot;наблюдателя&quot;.</div><div class="ttdef"><b>Definition:</b> model.h:84</div></div>
-<div class="ttc" id="aclass_model_html_adc4a785044f0bbadc853fab654b20a2e"><div class="ttname"><a href="class_model.html#adc4a785044f0bbadc853fab654b20a2e">Model::createNew</a></div><div class="ttdeci">void createNew()</div><div class="ttdoc">Создание нового документа</div><div class="ttdef"><b>Definition:</b> model.h:23</div></div>
-<div class="ttc" id="aclass_model_html_aecd7030f32044d0853a3e78bcccfb8dd"><div class="ttname"><a href="class_model.html#aecd7030f32044d0853a3e78bcccfb8dd">Model::importFromFile</a></div><div class="ttdeci">void importFromFile(const std::string &amp;filename)</div><div class="ttdoc">Импорт документа из файла</div><div class="ttdef"><b>Definition:</b> model.h:34</div></div>
-<div class="ttc" id="aclass_model_html_af06437f32bae51545dcabf1634d6d120"><div class="ttname"><a href="class_model.html#af06437f32bae51545dcabf1634d6d120">Model::primitives</a></div><div class="ttdeci">std::list&lt; IPrimitive * &gt; primitives() const</div><div class="ttdoc">Список графических примитивов</div><div class="ttdef"><b>Definition:</b> model.h:112</div></div>
-<div class="ttc" id="aclass_model_html_af9d192c0c4684e195b7582182e4bfe9e"><div class="ttname"><a href="class_model.html#af9d192c0c4684e195b7582182e4bfe9e">Model::logMessage</a></div><div class="ttdeci">std::string logMessage() const</div><div class="ttdoc">Лог-сообщение (обновляется после каждого изменения модели).</div><div class="ttdef"><b>Definition:</b> model.h:103</div></div>
-<div class="ttc" id="aiobservable_8h_html"><div class="ttname"><a href="iobservable_8h.html">iobservable.h</a></div></div>
-<div class="ttc" id="aiprimitive_8h_html"><div class="ttname"><a href="iprimitive_8h.html">iprimitive.h</a></div></div>
+<div class="ttc" id="aclass_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdoc">Класс Model (MVC)</div><div class="ttdef"><b>Definition:</b> model.h:15</div></div>
+<div class="ttc" id="aclass_model_html_a053bd94cb005a8ea49b24982d84b7884"><div class="ttname"><a href="class_model.html#a053bd94cb005a8ea49b24982d84b7884">Model::addPrimitive</a></div><div class="ttdeci">void addPrimitive(IPrimitive *primitive) override</div><div class="ttdoc">Добавление графического примитива</div><div class="ttdef"><b>Definition:</b> model.h:66</div></div>
+<div class="ttc" id="aclass_model_html_a1791fc33f1ef1f63e48caf5c12e01bc4"><div class="ttname"><a href="class_model.html#a1791fc33f1ef1f63e48caf5c12e01bc4">Model::currentPrimitive</a></div><div class="ttdeci">IPrimitive * currentPrimitive() const override</div><div class="ttdoc">Текущий (активный) примитив</div><div class="ttdef"><b>Definition:</b> model.h:139</div></div>
+<div class="ttc" id="aclass_model_html_a1d454974276191e0c01791625e13a609"><div class="ttname"><a href="class_model.html#a1d454974276191e0c01791625e13a609">Model::removePrimitive</a></div><div class="ttdeci">void removePrimitive(IPrimitive *primitive) override</div><div class="ttdoc">Удаление графического примитива</div><div class="ttdef"><b>Definition:</b> model.h:78</div></div>
+<div class="ttc" id="aclass_model_html_a3561f857cdc80e803ae122187da2e247"><div class="ttname"><a href="class_model.html#a3561f857cdc80e803ae122187da2e247">Model::modelState</a></div><div class="ttdeci">std::string modelState() const override</div><div class="ttdoc">Статус-сообщение о состоянии модели (обновляется после каждого изменения модели).</div><div class="ttdef"><b>Definition:</b> model.h:130</div></div>
+<div class="ttc" id="aclass_model_html_a57659b67c8959c03bba477b09ae60e57"><div class="ttname"><a href="class_model.html#a57659b67c8959c03bba477b09ae60e57">Model::attachObserver</a></div><div class="ttdeci">void attachObserver(IObserver *observer) override</div><div class="ttdoc">Добавление &quot;наблюдателя&quot;.</div><div class="ttdef"><b>Definition:</b> model.h:90</div></div>
+<div class="ttc" id="aclass_model_html_a9e6bdb929068ed1c628f715bfc4365bc"><div class="ttname"><a href="class_model.html#a9e6bdb929068ed1c628f715bfc4365bc">Model::selectPrimitive</a></div><div class="ttdeci">void selectPrimitive(int index) override</div><div class="ttdoc">Выбор текущего примитива по индексу</div><div class="ttdef"><b>Definition:</b> model.h:117</div></div>
+<div class="ttc" id="aclass_model_html_abbcdc1a415a01d202fa2af394118437b"><div class="ttname"><a href="class_model.html#abbcdc1a415a01d202fa2af394118437b">Model::createNew</a></div><div class="ttdeci">void createNew() override</div><div class="ttdoc">Создание нового документа</div><div class="ttdef"><b>Definition:</b> model.h:34</div></div>
+<div class="ttc" id="aclass_model_html_ac2538530be9fe227a40b8d1e653e6762"><div class="ttname"><a href="class_model.html#ac2538530be9fe227a40b8d1e653e6762">Model::detachObserver</a></div><div class="ttdeci">void detachObserver(IObserver *observer) override</div><div class="ttdoc">Удаление &quot;наблюдателя&quot;.</div><div class="ttdef"><b>Definition:</b> model.h:98</div></div>
+<div class="ttc" id="aclass_model_html_ad6ebd2062a0b823db841a0b88baac4c0"><div class="ttname"><a href="class_model.html#ad6ebd2062a0b823db841a0b88baac4c0">Model::~Model</a></div><div class="ttdeci">~Model()</div><div class="ttdef"><b>Definition:</b> model.h:23</div></div>
+<div class="ttc" id="aclass_model_html_adcf0af1172989b55a08ef66b9b4e27ef"><div class="ttname"><a href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">Model::notifyObservers</a></div><div class="ttdeci">void notifyObservers() override</div><div class="ttdoc">Оповещение &quot;наблюдателей&quot; о состоянии модели</div><div class="ttdef"><b>Definition:</b> model.h:106</div></div>
+<div class="ttc" id="aclass_model_html_ade31fa80cf1c94e5ffdffcee027356fe"><div class="ttname"><a href="class_model.html#ade31fa80cf1c94e5ffdffcee027356fe">Model::exportToFile</a></div><div class="ttdeci">void exportToFile(const std::string &amp;filename) override</div><div class="ttdoc">Экспорт документа в файл</div><div class="ttdef"><b>Definition:</b> model.h:56</div></div>
+<div class="ttc" id="aclass_model_html_ae3b375de5f6df4faf74a95d64748e048"><div class="ttname"><a href="class_model.html#ae3b375de5f6df4faf74a95d64748e048">Model::Model</a></div><div class="ttdeci">Model()</div><div class="ttdef"><b>Definition:</b> model.h:17</div></div>
+<div class="ttc" id="aclass_model_html_ae430330db03575476e6ab2703b913c80"><div class="ttname"><a href="class_model.html#ae430330db03575476e6ab2703b913c80">Model::importFromFile</a></div><div class="ttdeci">void importFromFile(const std::string &amp;filename) override</div><div class="ttdoc">Импорт документа из файла</div><div class="ttdef"><b>Definition:</b> model.h:45</div></div>
+<div class="ttc" id="aimodel_8h_html"><div class="ttname"><a href="imodel_8h.html">imodel.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

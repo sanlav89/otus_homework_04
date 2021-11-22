@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['import_0',['Import',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74abedcec009603ba7f6708eff8daf969ea',1,'Controller']]]
+  ['removeprimitive_0',['RemovePrimitive',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa16918610774a35aa167084e54fe8d479',1,'View']]]
 ];

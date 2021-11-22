@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>vector_editor: Класс IModel</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">vector_editor
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="class_i_model-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IModel<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс <a class="el" href="class_i_model.html" title="Класс IModel - интерфейс модели (MVC)">IModel</a> - интерфейс модели (MVC)  
+ <a href="class_i_model.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="imodel_8h_source.html">imodel.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IModel:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_model__inherit__graph.png" border="0" usemap="#a_i_model_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_i_model_inherit__map" id="a_i_model_inherit__map">
+<area shape="rect" title="Класс IModel &#45; интерфейс модели (MVC)" alt="" coords="5,5,67,32"/>
+<area shape="rect" href="class_model.html" title="Класс Model (MVC)" alt="" coords="7,80,65,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aae3da291eb4410de6965ae73da65cd77"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#aae3da291eb4410de6965ae73da65cd77">~IModel</a> ()=default</td></tr>
+<tr class="separator:aae3da291eb4410de6965ae73da65cd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e81aee7771c1c87aee53b38d85900ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a2e81aee7771c1c87aee53b38d85900ff">createNew</a> ()=0</td></tr>
+<tr class="separator:a2e81aee7771c1c87aee53b38d85900ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e556a0cce543a9335c664d8a32dcca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a45e556a0cce543a9335c664d8a32dcca">importFromFile</a> (const std::string &amp;)=0</td></tr>
+<tr class="separator:a45e556a0cce543a9335c664d8a32dcca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02f594042782c34696df8ef91b9e087"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#ae02f594042782c34696df8ef91b9e087">exportToFile</a> (const std::string &amp;)=0</td></tr>
+<tr class="separator:ae02f594042782c34696df8ef91b9e087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9831fc6813482f49eb969358db32b7f4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a9831fc6813482f49eb969358db32b7f4">addPrimitive</a> (<a class="el" href="class_i_primitive.html">IPrimitive</a> *)=0</td></tr>
+<tr class="separator:a9831fc6813482f49eb969358db32b7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ae02935c2bf79f2ae073ce210b07b9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#aa4ae02935c2bf79f2ae073ce210b07b9">removePrimitive</a> (<a class="el" href="class_i_primitive.html">IPrimitive</a> *)=0</td></tr>
+<tr class="separator:aa4ae02935c2bf79f2ae073ce210b07b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7ee21da65b1b128a6a9dc42ae655741"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#aa7ee21da65b1b128a6a9dc42ae655741">attachObserver</a> (<a class="el" href="class_i_observer.html">IObserver</a> *)=0</td></tr>
+<tr class="separator:aa7ee21da65b1b128a6a9dc42ae655741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ada9a8142cce59e3690e86c54f51e07"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a0ada9a8142cce59e3690e86c54f51e07">detachObserver</a> (<a class="el" href="class_i_observer.html">IObserver</a> *)=0</td></tr>
+<tr class="separator:a0ada9a8142cce59e3690e86c54f51e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a07e01a91ffffe3f03707c9d7066508"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a4a07e01a91ffffe3f03707c9d7066508">notifyObservers</a> ()=0</td></tr>
+<tr class="separator:a4a07e01a91ffffe3f03707c9d7066508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a1486afe2ac0d6f99b0d32604b1344"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a58a1486afe2ac0d6f99b0d32604b1344">selectPrimitive</a> (int)=0</td></tr>
+<tr class="separator:a58a1486afe2ac0d6f99b0d32604b1344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6ae67d5988ad7c0f5cab3bbe3b4312"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_primitive.html">IPrimitive</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a0c6ae67d5988ad7c0f5cab3bbe3b4312">currentPrimitive</a> () const =0</td></tr>
+<tr class="separator:a0c6ae67d5988ad7c0f5cab3bbe3b4312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80113304e0a1fbb75fdf7da6d6ebafe4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_model.html#a80113304e0a1fbb75fdf7da6d6ebafe4">modelState</a> () const =0</td></tr>
+<tr class="separator:a80113304e0a1fbb75fdf7da6d6ebafe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс <a class="el" href="class_i_model.html" title="Класс IModel - интерфейс модели (MVC)">IModel</a> - интерфейс модели (MVC) </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="aae3da291eb4410de6965ae73da65cd77" name="aae3da291eb4410de6965ae73da65cd77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae3da291eb4410de6965ae73da65cd77">&#9670;&nbsp;</a></span>~IModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IModel::~IModel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a9831fc6813482f49eb969358db32b7f4" name="a9831fc6813482f49eb969358db32b7f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9831fc6813482f49eb969358db32b7f4">&#9670;&nbsp;</a></span>addPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::addPrimitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_primitive.html">IPrimitive</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#a053bd94cb005a8ea49b24982d84b7884">Model</a>.</p>
+
+</div>
+</div>
+<a id="aa7ee21da65b1b128a6a9dc42ae655741" name="aa7ee21da65b1b128a6a9dc42ae655741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ee21da65b1b128a6a9dc42ae655741">&#9670;&nbsp;</a></span>attachObserver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::attachObserver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_observer.html">IObserver</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#a57659b67c8959c03bba477b09ae60e57">Model</a>.</p>
+
+</div>
+</div>
+<a id="a2e81aee7771c1c87aee53b38d85900ff" name="a2e81aee7771c1c87aee53b38d85900ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e81aee7771c1c87aee53b38d85900ff">&#9670;&nbsp;</a></span>createNew()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::createNew </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#abbcdc1a415a01d202fa2af394118437b">Model</a>.</p>
+
+</div>
+</div>
+<a id="a0c6ae67d5988ad7c0f5cab3bbe3b4312" name="a0c6ae67d5988ad7c0f5cab3bbe3b4312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6ae67d5988ad7c0f5cab3bbe3b4312">&#9670;&nbsp;</a></span>currentPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_i_primitive.html">IPrimitive</a> * IModel::currentPrimitive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#a1791fc33f1ef1f63e48caf5c12e01bc4">Model</a>.</p>
+
+</div>
+</div>
+<a id="a0ada9a8142cce59e3690e86c54f51e07" name="a0ada9a8142cce59e3690e86c54f51e07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ada9a8142cce59e3690e86c54f51e07">&#9670;&nbsp;</a></span>detachObserver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::detachObserver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_observer.html">IObserver</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#ac2538530be9fe227a40b8d1e653e6762">Model</a>.</p>
+
+</div>
+</div>
+<a id="ae02f594042782c34696df8ef91b9e087" name="ae02f594042782c34696df8ef91b9e087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02f594042782c34696df8ef91b9e087">&#9670;&nbsp;</a></span>exportToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::exportToFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#ade31fa80cf1c94e5ffdffcee027356fe">Model</a>.</p>
+
+</div>
+</div>
+<a id="a45e556a0cce543a9335c664d8a32dcca" name="a45e556a0cce543a9335c664d8a32dcca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45e556a0cce543a9335c664d8a32dcca">&#9670;&nbsp;</a></span>importFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::importFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#ae430330db03575476e6ab2703b913c80">Model</a>.</p>
+
+</div>
+</div>
+<a id="a80113304e0a1fbb75fdf7da6d6ebafe4" name="a80113304e0a1fbb75fdf7da6d6ebafe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80113304e0a1fbb75fdf7da6d6ebafe4">&#9670;&nbsp;</a></span>modelState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string IModel::modelState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#a3561f857cdc80e803ae122187da2e247">Model</a>.</p>
+
+</div>
+</div>
+<a id="a4a07e01a91ffffe3f03707c9d7066508" name="a4a07e01a91ffffe3f03707c9d7066508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a07e01a91ffffe3f03707c9d7066508">&#9670;&nbsp;</a></span>notifyObservers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::notifyObservers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#adcf0af1172989b55a08ef66b9b4e27ef">Model</a>.</p>
+
+</div>
+</div>
+<a id="aa4ae02935c2bf79f2ae073ce210b07b9" name="aa4ae02935c2bf79f2ae073ce210b07b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ae02935c2bf79f2ae073ce210b07b9">&#9670;&nbsp;</a></span>removePrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::removePrimitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_primitive.html">IPrimitive</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#a1d454974276191e0c01791625e13a609">Model</a>.</p>
+
+</div>
+</div>
+<a id="a58a1486afe2ac0d6f99b0d32604b1344" name="a58a1486afe2ac0d6f99b0d32604b1344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a1486afe2ac0d6f99b0d32604b1344">&#9670;&nbsp;</a></span>selectPrimitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IModel::selectPrimitive </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Замещается в <a class="el" href="class_model.html#a9e6bdb929068ed1c628f715bfc4365bc">Model</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li><a class="el" href="imodel_8h_source.html">imodel.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

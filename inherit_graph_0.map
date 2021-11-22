@@ -1,3 +1,4 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" href="$class_controller.html" title="Класс Controller (MVC)" alt="" coords="5,5,83,32"/>
+<area shape="rect" id="node1" href="$class_i_controller.html" title="Класс IController &#45; интерфейс контроллера (MVC)" alt="" coords="5,5,87,32"/>
+<area shape="rect" id="node2" href="$class_controller.html" title="Класс Controller (MVC)" alt="" coords="135,5,212,32"/>
 </map>

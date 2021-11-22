@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deletebyindex_0',['DeleteByIndex',['../class_controller.html#ad6553ff0f73e3cb2f4da3de124d2cd74a62f945ceaf4dacad6b3032464483a8b9',1,'Controller']]]
+  ['export_0',['Export',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa0095a9fa74d1713e43e370a7d7846224',1,'View']]]
 ];
