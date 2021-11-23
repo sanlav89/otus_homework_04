@@ -1,113 +1,95 @@
-#ifndef VIEW_H
-#define VIEW_H
+#pragma once
 
 #include <iostream>
-#include <cassert>
-#include "imodel.h"
-#include "icontroller.h"
+#include "model.h"
+#include "controller.h"
+#include "observer.h"
 
-/**
- * @brief Класс View (MVC) с интерфейсом "наблюдателя"
- */
-class View : public IObserver
-{
-public:
+namespace view {
 
-    /*! Идентификаторы команд редактора */
+    /*! Actions */
     enum class Action {
-        Create,             /*!< для создания нового документа */
-        Import,             /*!< для импорта документа из файла */
-        Export,             /*!< для экспорта документа в файл */
-        CreateRectangle,    /*!< для создания примитива "Прямоугольник" */
-        CreateEllipse,      /*!< для создания примитива "Эллипс" */
-        CreateTriangle,     /*!< для создания примитива "Треугольник" */
-        RemovePrimitive,    /*!< для удаления текущего примитива */
-        SelectPrimitive     /*!< для выбора примитива */
+        Create,             /*!< create new document */
+        Import,             /*!< import from file */
+        Export,             /*!< export to file */
+        CreateRectangle,    /*!< create rectangle */
+        CreateEllipse,      /*!< create ellipse */
+        CreateTriangle,     /*!< create triangle */
+        RemovePrimitive,    /*!< remove primitive */
+        SelectPrimitive     /*!< select primitive */
     };
 
-    /**
-     * @brief View
-     * @param model - указатель на объект модели (MVC)
-     * @param os - выходной текстовый поток
-     */
-    View(IModel *model, IController *controller, std::ostream &os = std::cout)
-        : m_model{model}
-        , m_controller{controller}
-        , m_os{os}
+    class View : public observer::IObserver
     {
-        m_os << "Hello from Amazing Vector Editor!" << std::endl << std::endl;
-        m_model->attachObserver(this);
-    }
+    public:
 
-    /**
-     * @brief Обновление представления модели (интерфейс "наблюдателя")
-     */
-    void update() override
-    {
-        m_os << m_model->modelState();
-    }
-
-    /**
-     * @brief Имитация событий View (без дополнительнрых параметров)
-     * @param[in] action - идентификатор события
-     */
-    void execute(Action action)
-    {
-        assert(action >= Action::Create
-                && action < Action::SelectPrimitive
-                && action != Action::Import
-                && action != Action::Export);
-        switch (action) {
-        case Action::Create:
-            m_controller->createNew();
-            break;
-        case Action::CreateRectangle:
-            m_controller->addRectangle(new Rectangle);
-            break;
-        case Action::CreateEllipse:
-            m_controller->addEllipse(new Ellipse);
-            break;
-        case Action::CreateTriangle:
-            m_controller->addTriangle(new Triangle);
-            break;
-        case Action::RemovePrimitive:
-            m_controller->removePrimitive(m_model->currentPrimitive());
-            break;
-        default:
-            break;
+        View(
+                const model::ModelPtr &model,
+                const controller::ControllerPtr &controller,
+                std::ostream &os = std::cout
+                )
+            : m_model{model}
+            , m_controller{controller}
+            , m_os{os}
+        {
+            m_os << "Hello from Amazing Vector Editor!" << std::endl << std::endl;
+            m_model->attachObserver(observer::IObserverPtr(this));
         }
-    }
 
-    /**
-     * @brief Имитация событий View (с дополнительныйм параметром типа int)
-     * @param[in] action - идентификатор события
-     * @param[in] index - индекс выбираемого примитива
-     */
-    void execute(Action action, int index)
-    {
-        assert(action == Action::SelectPrimitive);
-        m_controller->selectPrimitive(index);
-    }
-
-    /**
-     * @brief Имитация событий View (с дополнительныйм параметром типа string)
-     * @param[in] action - идентификатор события
-     * @param[in] filename - имя импортируемого / экспортируемого файла
-     */
-    void execute(Action action, const std::string &filename)
-    {
-        assert(action == Action::Import || action == Action::Export);
-        if (action == Action::Import) {
-            m_controller->importFromFile(filename);
-        } else {
-            m_controller->exportToFile(filename);
+        void update() override
+        {
+            m_os << m_model->modelState();
         }
-    }
 
-private:
-    IModel *m_model;
-    IController *m_controller;
-    std::ostream &m_os;
-};
+        void execute(Action action)
+        {
+            assert(action >= Action::Create
+                    && action < Action::SelectPrimitive
+                    && action != Action::Import
+                    && action != Action::Export);
+            switch (action) {
+            case Action::Create:
+                m_controller->createNew();
+                break;
+            case Action::CreateRectangle:
+                m_controller->addRectangle(primitive::RectanglePtr(new primitive::Rectangle));
+                break;
+            case Action::CreateEllipse:
+                m_controller->addEllipse(primitive::EllipsePtr(new primitive::Ellipse));
+                break;
+            case Action::CreateTriangle:
+                m_controller->addTriangle(primitive::TrianglePtr(new primitive::Triangle));
+                break;
+            case Action::RemovePrimitive:
+                m_controller->removePrimitive(m_model->currentPrimitive());
+                break;
+            default:
+                break;
+            }
+        }
 
-#endif // VIEW_H
+        void execute(Action action, int index)
+        {
+            assert(action == Action::SelectPrimitive);
+            m_controller->selectPrimitive(index);
+        }
+
+        void execute(Action action, const std::string &filename)
+        {
+            assert(action == Action::Import || action == Action::Export);
+            if (action == Action::Import) {
+                m_controller->importFromFile(filename);
+            } else {
+                m_controller->exportToFile(filename);
+            }
+        }
+
+    private:
+        model::ModelPtr m_model;
+        controller::ControllerPtr m_controller;
+        std::ostream &m_os;
+    };
+
+    using ViewPtr = std::unique_ptr<View>;
+}
+
