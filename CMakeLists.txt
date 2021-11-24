@@ -16,13 +16,8 @@ set (
 # HEADERS
 set (
     HEADERS
-        iobserver.h
-        imodel.h
-        icontroller.h
-        iprimitive.h
-        rectangle.h
-        ellipse.h
-        triangle.h
+        observer.h
+        primitive.h
         model.h
         view.h
         controller.h

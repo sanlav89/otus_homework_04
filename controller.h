@@ -1,94 +1,56 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#pragma once
 
-#include "imodel.h"
-#include "icontroller.h"
+#include "model.h"
+#include "primitive.h"
 
-/**
- * @brief Класс Controller (MVC)
- */
-class Controller : public IController
-{
-public:
-    /**
-     * @brief Controller (MVC)
-     * @param model - указатель на модель (MVC)
-     */
-    Controller(IModel *model) : m_model(model) {}
+namespace controller {
 
-    /**
-     * @brief Создание нового документа
-     */
-    void createNew() override
+    class Controller
     {
-        m_model->createNew();
-    }
+    public:
 
-    /**
-     * @brief Импорт документа из файла
-     * @param[in] filename - имя файла
-     */
-    void importFromFile(const std::string &filename) override
-    {
-        m_model->importFromFile(filename);
-    }
+        Controller(const model::ModelPtr &model) : m_model(model) {}
 
-    /**
-     * @brief Экспорт документа в файл
-     * @param[in] filename - имя файла
-     */
-    void exportToFile(const std::string &filename) override
-    {
-        m_model->exportToFile(filename);
-    }
+        void createNew()
+        {
+            m_model->createNew();
+        }
 
-    /**
-     * @brief Добавление прямоугольника
-     * @param[in] rectangle - указатель на прямоугольник
-     */
-    void addRectangle(Rectangle *rectangle) override
-    {
-        m_model->addPrimitive(rectangle);
-    }
+        void importFromFile(const std::string &filename)
+        {
+            m_model->importFromFile(filename);
+        }
 
-    /**
-     * @brief Добавление эллипса
-     * @param[in] ellipse - указатель на эллипс
-     */
-    void addEllipse(Ellipse *ellipse) override
-    {
-        m_model->addPrimitive(ellipse);
-    }
+        void exportToFile(const std::string &filename)
+        {
+            m_model->exportToFile(filename);
+        }
 
-    /**
-     * @brief Добавление треугольника
-     * @param[in] triangle - указатель на треугольник
-     */
-    void addTriangle(Triangle *triangle) override
-    {
-        m_model->addPrimitive(triangle);
-    }
+        void addRectangle(const primitive::RectanglePtr &rectangle)
+        {
+            m_model->addPrimitive(rectangle);
+        }
 
-    /**
-     * @brief Удаление графического примитива
-     * @param[in] primitive - указатель на удаляемый графический примитив
-     */
-    void removePrimitive(IPrimitive *primitive) override
-    {
-        m_model->removePrimitive(primitive);
-    }
+        void addEllipse(const primitive::EllipsePtr &ellipse)
+        {
+            m_model->addPrimitive(ellipse);
+        }
 
-    /**
-     * @brief Выбор текущего примитива по индексу
-     * @param[in] index - индекс
-     */
-    void selectPrimitive(int index) override
-    {
-        m_model->selectPrimitive(index);
-    }
+        void addTriangle(const primitive::TrianglePtr &triangle)
+        {
+            m_model->addPrimitive(triangle);
+        }
 
-private:
-    IModel *m_model;
-};
+        void removePrimitive(int index)
+        {
+            m_model->removePrimitive(index);
+        }
 
-#endif // CONTROLLER_H
+    private:
+        model::ModelPtr m_model;
+    };
+
+    using ControllerPtr = std::shared_ptr<Controller>;
+
+}
+

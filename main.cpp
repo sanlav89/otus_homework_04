@@ -1,29 +1,22 @@
-#include "model.h"
 #include "view.h"
-#include "controller.h"
 
 int main(void)
 {
-    Model *model = new Model;
-    Controller *controller = new Controller(model);
-    View *editor = new View(model, controller);
+    model::ModelPtr model(new model::Model);
+    controller::ControllerPtr controller(new controller::Controller(model));
+    view::ViewPtr editor(new view::View(model, controller));
 
-    editor->execute(View::Action::Create);
-    editor->execute(View::Action::CreateEllipse);
-    editor->execute(View::Action::CreateRectangle);
-    editor->execute(View::Action::CreateRectangle);
-    editor->execute(View::Action::CreateTriangle);
-    editor->execute(View::Action::CreateRectangle);
-    editor->execute(View::Action::SelectPrimitive, 3);
-    editor->execute(View::Action::RemovePrimitive);
-    editor->execute(View::Action::Create);
-    editor->execute(View::Action::CreateEllipse);
-    editor->execute(View::Action::Export, "my_file_out.txt");
-    editor->execute(View::Action::Import, "my_file_in.txt");
-
-    delete editor;
-    delete controller;
-    delete model;
+    editor->newAction();
+    editor->addEllipseAction();
+    editor->addRectangleAction();
+    editor->addRectangleAction();
+    editor->addTriangleAction();
+    editor->addRectangleAction();
+    editor->removeAction(3);
+    editor->newAction();
+    editor->addEllipseAction();
+    editor->exportAction("my_file_out.txt");
+    editor->importAction("my_file_in.txt");
 
     return 0;
 }
