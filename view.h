@@ -3,21 +3,8 @@
 #include <iostream>
 #include "model.h"
 #include "controller.h"
-#include "observer.h"
 
 namespace view {
-
-    /*! Actions */
-    enum class Action {
-        Create,             /*!< create new document */
-        Import,             /*!< import from file */
-        Export,             /*!< export to file */
-        CreateRectangle,    /*!< create rectangle */
-        CreateEllipse,      /*!< create ellipse */
-        CreateTriangle,     /*!< create triangle */
-        RemovePrimitive,    /*!< remove primitive */
-        SelectPrimitive     /*!< select primitive */
-    };
 
     class View : public observer::IObserver
     {
@@ -41,47 +28,39 @@ namespace view {
             m_os << m_model->modelState();
         }
 
-        void execute(Action action)
+        void newAction()
         {
-            assert(action >= Action::Create
-                    && action < Action::SelectPrimitive
-                    && action != Action::Import
-                    && action != Action::Export);
-            switch (action) {
-            case Action::Create:
-                m_controller->createNew();
-                break;
-            case Action::CreateRectangle:
-                m_controller->addRectangle(primitive::RectanglePtr(new primitive::Rectangle));
-                break;
-            case Action::CreateEllipse:
-                m_controller->addEllipse(primitive::EllipsePtr(new primitive::Ellipse));
-                break;
-            case Action::CreateTriangle:
-                m_controller->addTriangle(primitive::TrianglePtr(new primitive::Triangle));
-                break;
-            case Action::RemovePrimitive:
-                m_controller->removePrimitive(m_model->currentPrimitive());
-                break;
-            default:
-                break;
-            }
+            m_controller->createNew();
         }
 
-        void execute(Action action, int index)
+        void importAction(const std::string &filename)
         {
-            assert(action == Action::SelectPrimitive);
-            m_controller->selectPrimitive(index);
+            m_controller->importFromFile(filename);
         }
 
-        void execute(Action action, const std::string &filename)
+        void exportAction(const std::string &filename)
         {
-            assert(action == Action::Import || action == Action::Export);
-            if (action == Action::Import) {
-                m_controller->importFromFile(filename);
-            } else {
-                m_controller->exportToFile(filename);
-            }
+            m_controller->exportToFile(filename);
+        }
+
+        void addRectangleAction()
+        {
+            m_controller->addRectangle(primitive::RectanglePtr(new primitive::Rectangle));
+        }
+
+        void addEllipseAction()
+        {
+            m_controller->addEllipse(primitive::EllipsePtr(new primitive::Ellipse));
+        }
+
+        void addTriangleAction()
+        {
+            m_controller->addTriangle(primitive::TrianglePtr(new primitive::Triangle));
+        }
+
+        void removeAction(int index)
+        {
+            m_controller->removePrimitive(index);
         }
 
     private:

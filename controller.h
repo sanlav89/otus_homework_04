@@ -41,14 +41,9 @@ namespace controller {
             m_model->addPrimitive(triangle);
         }
 
-        void removePrimitive(const primitive::IPrimitivePtr &primitive)
+        void removePrimitive(int index)
         {
-            m_model->removePrimitive(primitive);
-        }
-
-        void selectPrimitive(int index)
-        {
-            m_model->selectPrimitive(index);
+            m_model->removePrimitive(index);
         }
 
     private:

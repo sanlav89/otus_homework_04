@@ -1,8 +1,6 @@
 #pragma once
 
 #include <list>
-#include <cassert>
-#include <memory>
 #include "primitive.h"
 #include "observer.h"
 
@@ -11,11 +9,7 @@ namespace model {
     class Model
     {
     public:
-        Model()
-        {
-            m_logMessage = "";
-            m_currentPrimitive = nullptr;
-        }
+        Model() = default;
 
         void createNew()
         {
@@ -41,15 +35,19 @@ namespace model {
         {
             m_logMessage = primitive->show() + " was added to document";
             m_primitives.push_back(primitive);
-            m_currentPrimitive = m_primitives.back();
             notifyObservers();
         }
 
-        void removePrimitive(const primitive::IPrimitivePtr &primitive)
+        void removePrimitive(int index)
         {
-            m_logMessage = primitive->show() + " was removed from document";
-            m_primitives.remove(primitive);
-            m_currentPrimitive = m_primitives.size() > 0 ? m_primitives.back() : nullptr;
+            if (index >= 0 && index < static_cast<int>(m_primitives.size())) {
+                auto front = m_primitives.begin();
+                std::advance(front, index);
+                m_logMessage = (*front)->show() + " was removed from document";
+                m_primitives.remove(*front);
+            } else {
+                m_logMessage = "Warning! Incorrect index.";
+            }
             notifyObservers();
         }
 
@@ -70,27 +68,12 @@ namespace model {
             }
         }
 
-        void selectPrimitive(int index)
-        {
-            if (index >= 0 && index < static_cast<int>(m_primitives.size())) {
-                auto front = m_primitives.begin();
-                std::advance(front, index);
-                m_currentPrimitive = *front;
-            }
-        }
-
         std::string modelState() const
         {
             return "|-LOG---| " + m_logMessage + "\n" + primitivesState();
         }
 
-        primitive::IPrimitivePtr currentPrimitive() const
-        {
-            return  m_currentPrimitive;
-        }
-
     private:
-        primitive::IPrimitivePtr m_currentPrimitive;
         std::list<observer::IObserverPtr> m_observers;
         std::list<primitive::IPrimitivePtr> m_primitives;
         std::string m_logMessage;
@@ -101,7 +84,6 @@ namespace model {
                 m_primitives.clear();
                 m_logMessage.append(". All old Primitives was removed");
             }
-            m_currentPrimitive = nullptr;
         }
 
         std::string primitivesState() const
