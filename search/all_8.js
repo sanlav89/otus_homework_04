@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['selectprimitive_0',['SelectPrimitive',['../class_view.html#a826f90f57e013b1aeaf30da24e5601ffa478adc238d58323f5df303b754a1d1f3',1,'View']]],
-  ['selectprimitive_1',['selectPrimitive',['../class_controller.html#ac04d0c5603fec63b9a817c14a6638ae7',1,'Controller::selectPrimitive()'],['../class_i_controller.html#a043b221d0e27c354f51d03ac1c6659f2',1,'IController::selectPrimitive()'],['../class_i_model.html#a58a1486afe2ac0d6f99b0d32604b1344',1,'IModel::selectPrimitive()'],['../class_model.html#a9e6bdb929068ed1c628f715bfc4365bc',1,'Model::selectPrimitive()']]],
-  ['set_2',['set',['../_c_make_lists_8txt.html#acaf6fce0ae081f987b9b30a50ad7fb05',1,'CMakeLists.txt']]],
-  ['show_3',['show',['../class_ellipse.html#ab1022528532153756e5424af033daa3d',1,'Ellipse::show()'],['../class_i_primitive.html#a0db177d967e416e5f6695023ee586ba3',1,'IPrimitive::show()'],['../class_rectangle.html#a5d5da2d9c4ecbe6e49d96a90cb72833f',1,'Rectangle::show()'],['../class_triangle.html#a68c09083b36f9c3b1a68d1cab889f123',1,'Triangle::show()']]]
+  ['primitive_0',['primitive',['../namespaceprimitive.html',1,'']]],
+  ['primitive_2eh_1',['primitive.h',['../primitive_8h.html',1,'']]]
 ];

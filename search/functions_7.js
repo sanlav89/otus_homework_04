@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['rectangle_0',['Rectangle',['../class_rectangle.html#ab74337363dcb42ccb4b030b0970085f8',1,'Rectangle']]],
-  ['removeprimitive_1',['removePrimitive',['../class_controller.html#ac58622f40748120f55e28e811138c212',1,'Controller::removePrimitive()'],['../class_i_controller.html#ac8ace41935a9c56e2b7353e27ab4940a',1,'IController::removePrimitive()'],['../class_i_model.html#aa4ae02935c2bf79f2ae073ce210b07b9',1,'IModel::removePrimitive()'],['../class_model.html#a1d454974276191e0c01791625e13a609',1,'Model::removePrimitive()']]]
+  ['rectangle_0',['Rectangle',['../classprimitive_1_1_rectangle.html#a499ddb4432ccab7db185883fa979091e',1,'primitive::Rectangle']]],
+  ['removeaction_1',['removeAction',['../classview_1_1_view.html#a90beb10ed06279c2517125ea6afe3d0a',1,'view::View']]],
+  ['removeprimitive_2',['removePrimitive',['../classcontroller_1_1_controller.html#add1d1d80407cf25239762f914c330a4e',1,'controller::Controller::removePrimitive()'],['../classmodel_1_1_model.html#afe26692d3110d6d8d5dbe4e783864730',1,'model::Model::removePrimitive()']]]
 ];

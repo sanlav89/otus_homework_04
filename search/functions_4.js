@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['importfromfile_0',['importFromFile',['../class_controller.html#a5ab6a62e4e64cbc4571be528bc72b834',1,'Controller::importFromFile()'],['../class_i_controller.html#a51c037d915df6ff75dea554e1f7fd5ee',1,'IController::importFromFile()'],['../class_i_model.html#a45e556a0cce543a9335c664d8a32dcca',1,'IModel::importFromFile()'],['../class_model.html#ae430330db03575476e6ab2703b913c80',1,'Model::importFromFile()']]]
+  ['importaction_0',['importAction',['../classview_1_1_view.html#af3c01023823006548f897e0bf82e3e23',1,'view::View']]],
+  ['importfromfile_1',['importFromFile',['../classcontroller_1_1_controller.html#a0ceadfc7f177ee8815d56da410c62427',1,'controller::Controller::importFromFile()'],['../classmodel_1_1_model.html#a1600bd2ce596a5175dd107cc25397a10',1,'model::Model::importFromFile()']]]
 ];

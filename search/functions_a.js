@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_0',['update',['../class_i_observer.html#a91a4770cbec97439f2faba69a1ed72e0',1,'IObserver::update()'],['../class_view.html#a30f97c3315d0ed7c12bfabc7d8fd3275',1,'View::update()']]]
+  ['update_0',['update',['../classobserver_1_1_i_observer.html#a1a0e2fa6089fd1b73e61cd4cddff6d6d',1,'observer::IObserver::update()'],['../classview_1_1_view.html#a4e93569ec6643b7b4bfde9546ba97939',1,'view::View::update()']]]
 ];

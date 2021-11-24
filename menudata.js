@@ -24,6 +24,11 @@
 */
 var menudata={children:[
 {text:"Титульная страница",url:"index.html"},
+{text:"Пространства имен",url:"namespaces.html",children:[
+{text:"Пространства имен",url:"namespaces.html"},
+{text:"Члены пространств имен",url:"namespacemembers.html",children:[
+{text:"Указатель",url:"namespacemembers.html"},
+{text:"Определения типов",url:"namespacemembers_type.html"}]}]},
 {text:"Классы",url:"annotated.html",children:[
 {text:"Классы",url:"annotated.html"},
 {text:"Алфавитный указатель классов",url:"classes.html"},
@@ -56,8 +61,7 @@ var menudata={children:[
 {text:"t",url:"functions_func.html#index_t"},
 {text:"u",url:"functions_func.html#index_u"},
 {text:"v",url:"functions_func.html#index_v"},
-{text:"~",url:"functions_func.html#index__7E"}]},
-{text:"Перечисления",url:"functions_enum.html"}]}]},
+{text:"~",url:"functions_func.html#index__7E"}]}]}]},
 {text:"Файлы",url:"files.html",children:[
 {text:"Файлы",url:"files.html"},
 {text:"Список членов всех файлов",url:"globals.html",children:[

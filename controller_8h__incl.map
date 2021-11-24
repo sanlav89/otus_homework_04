@@ -1,11 +1,9 @@
 <map id="controller.h" name="controller.h">
-<area shape="rect" id="node1" title=" " alt="" coords="78,5,163,32"/>
-<area shape="rect" id="node2" href="$imodel_8h.html" title=" " alt="" coords="31,80,101,107"/>
-<area shape="rect" id="node6" href="$icontroller_8h.html" title=" " alt="" coords="182,80,270,107"/>
-<area shape="rect" id="node3" href="$iprimitive_8h.html" title=" " alt="" coords="184,229,268,256"/>
-<area shape="rect" id="node5" href="$iobserver_8h.html" title=" " alt="" coords="23,155,109,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="199,304,253,331"/>
-<area shape="rect" id="node7" href="$rectangle_8h.html" title=" " alt="" coords="133,155,218,181"/>
-<area shape="rect" id="node8" href="$ellipse_8h.html" title=" " alt="" coords="242,155,311,181"/>
-<area shape="rect" id="node9" href="$triangle_8h.html" title=" " alt="" coords="335,155,410,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="118,5,203,32"/>
+<area shape="rect" id="node2" href="$model_8h.html" title=" " alt="" coords="93,80,159,107"/>
+<area shape="rect" id="node4" href="$primitive_8h.html" title=" " alt="" coords="175,155,256,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,44,181"/>
+<area shape="rect" id="node7" href="$observer_8h.html" title=" " alt="" coords="67,155,150,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="188,229,243,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="85,229,153,256"/>
 </map>
